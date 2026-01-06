@@ -18,7 +18,7 @@ add_action('wp_enqueue_scripts', function () {
 function my_script_init()
 {
   // フォントの設定
-  wp_enqueue_style('GoogleFonts', '//fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Oswald:wght@200..700&display=swap', array(), null);
+  wp_enqueue_style('GoogleFonts', '//fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap', array(), null);
 
   // swiper CSS
   wp_enqueue_style('slider-style', '//unpkg.com/swiper@8/swiper-bundle.min.css', array(), '', 'all');

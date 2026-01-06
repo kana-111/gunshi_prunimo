@@ -38,7 +38,7 @@ get_template_part('parts/functions-lib/func-admin-columns');
 get_template_part('parts/functions-lib/func-form');
 
 // カスタム投稿の設定
-get_template_part('parts/functions-lib/func-add-posttype-case');
+// get_template_part('parts/functions-lib/func-add-posttype-case');
 
 // 投稿の設定
 get_template_part('parts/functions-lib/func-add-posttype-post');

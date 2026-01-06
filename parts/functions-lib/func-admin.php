@@ -33,8 +33,5 @@ add_action('admin_bar_menu', 'remove_wp_nodes', 999);
 // WP管理画面の不要なサイドメニューを非表示 (編集者用)
 add_action('admin_menu', function () {
   if (!current_user_can('administrator')) {
-    // remove_menu_page( 'upload.php' ); // メディア
-    // remove_menu_page( 'profile.php' ); // プロフィール
   }
 }, 999);
-

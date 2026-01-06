@@ -29,7 +29,7 @@
 // フォント設定
 ////////////////////
 :root {
-  --base-font: "Noto Sans JP", sans-serif;
+  --base-font: "Noto Serif JP", serif;
   --fw-extralight: 200;
   --fw-light: 300;
   --fw-regular: 400;
@@ -47,7 +47,9 @@
 ////////////////////
 :root {
   --white: #fff;
-  --black: #000;
+  --black01: #333;
+  --black02: #1c1b1b;
+
 }
 
 ////////////////////

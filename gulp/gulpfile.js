@@ -132,7 +132,7 @@ function jsMinify() {
 // BrowserSync関連タスク
 // ===================================================================
 const browserSyncOption = {
-  proxy: "http://template.local/",// ローカルにある「Site Domain」に合わせる
+  proxy: "http://prunimo.local/",// ローカルにある「Site Domain」に合わせる
   notify: false,
 }
 
