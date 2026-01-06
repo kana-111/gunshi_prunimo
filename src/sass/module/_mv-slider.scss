@@ -1,0 +1,16 @@
+@use "global" as *;
+
+.mv-slider,
+.mv-slider__wrapper,
+.mv-slider__slide,
+.mv-slider__image {
+    width: 100%;
+    height: 100%;
+}
+
+.mv-slider__image img,
+.mv-slider__image picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

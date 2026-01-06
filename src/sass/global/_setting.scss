@@ -88,7 +88,9 @@
 body {
   container-type: inline-size;
   font-family: var(--base-font);
-  color: var(--black);
-  font-weight: var(--fw-medium);
+  color: var(--white);
+  font-weight: var(--fw-light);
+  background-color: var(--black01);
   line-height: 1.5;
+
 }
