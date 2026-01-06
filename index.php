@@ -1,1 +1,1 @@
-﻿ここのページはindex.phpです
+ここのページはindex.phpです

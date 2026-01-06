@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * func-security
  *  セキュリティ対策

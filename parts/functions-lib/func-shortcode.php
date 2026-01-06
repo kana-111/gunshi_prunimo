@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * func-shortcode
  * ショートコード管理
