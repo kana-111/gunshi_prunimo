@@ -1,0 +1,16 @@
+@use "global" as *;
+
+.title {
+    text-align: center;
+}
+
+.title h2 {
+    font-size: rem(60);
+    letter-spacing: 0.05em;
+}
+
+.title p {
+    font-size: rem(25);
+    letter-spacing: 0.05em;
+
+}

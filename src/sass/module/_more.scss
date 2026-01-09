@@ -1,0 +1,30 @@
+@use "global" as *;
+
+.more {
+    font-family: var(--second-font);
+    display: flex;
+    gap: rem(18);
+    align-items: center;
+    justify-content: center;
+    padding-bottom: rem(8);
+    border-bottom: 1px solid var(--white);
+    width: fit-content;
+    opacity: 1;
+    transition: opacity 0.3s;
+    font-weight: var(--fw-medium);
+
+    &::after {
+        content: "";
+        width: rem(4);
+        height: rem(4);
+        border-top: 1px solid var(--white);
+        border-right: 1px solid var(--white);
+        rotate: 45deg;
+    }
+
+    @media (any-hover: hover) {
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}

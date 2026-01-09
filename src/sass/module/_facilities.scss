@@ -1,0 +1,36 @@
+@use "global" as *;
+
+
+.facilities {}
+
+.facilities__contents {
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+    @include mq("md") {
+        grid-template-columns: 1fr;
+
+    }
+}
+
+.facilities__inner.inner {
+    margin-left: calc(50% - 50vw);
+}
+
+.facilities__slider {
+    height: rem(844);
+
+    @include mq("md") {
+        height: auto;
+    }
+}
+
+.facilities__gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(8);
+
+    @include mq("md") {
+        grid-template-columns: 1fr;
+    }
+}

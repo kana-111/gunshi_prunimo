@@ -1,0 +1,50 @@
+@use "global" as *;
+
+.progress {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &::before,
+    &::after {
+        content: attr(data-index);
+        display: block;
+        width: fit-content;
+        font-size: rem(16);
+        letter-spacing: 0.08em;
+        color: var(--white);
+        font-style: italic;
+    }
+
+    &::after {
+        content: attr(data-index-next);
+    }
+
+}
+
+.concept__container:last-child .progress {
+    &::after {
+        content: "01";
+    }
+}
+
+.progress__bar {
+    position: relative;
+    width: 1px;
+    height: rem(118);
+    background: var(--white);
+}
+
+.progress__barFill {
+    position: absolute;
+    inset: 0;
+    width: rem(2);
+    background: var(--white);
+    transform: scaleY(0);
+    transform-origin: top center;
+    will-change: transform;
+
+    @include mq("md") {
+        transform: scaleY(1);
+    }
+}

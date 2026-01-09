@@ -1,0 +1,185 @@
+@use "global" as *;
+
+.concept {
+    position: relative;
+    min-height: 100vh;
+    overflow: visible;
+
+    @include mq("md") {
+        min-height: auto;
+    }
+}
+
+
+.concept__sticky {
+    position: relative;
+
+    @include mq("md") {
+        position: static;
+        // top: auto;
+        // height: auto;
+        // overflow: visible; // ✅ 内部スクロールしない
+        // scroll-snap-type: none;
+
+
+
+        // position: sticky;
+        // top: 0;
+        // overflow: auto;
+        // scroll-snap-type: y mandatory;
+        // height: 100vh;
+
+
+    }
+}
+
+.concept__sticky.is-sticky {
+    outline: 3px solid #ff3b3b;
+    outline-offset: -3px;
+}
+
+
+
+.concept__fade {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0;
+    will-change: opacity;
+
+    @include mq("md") {
+        display: none;
+    }
+}
+
+.concept__fade--top {
+    top: 0;
+    height: 40vh;
+    background: linear-gradient(180deg,
+            var(--black1c1) 30%,
+            color-mix(in srgb, var(--black1c1) 70%, transparent) 65%,
+            transparent 100%);
+}
+
+.concept__fade--bottom {
+    bottom: 0;
+    height: 40vh;
+    background: linear-gradient(360deg,
+            var(--black1c1) 30%,
+            color-mix(in srgb, var(--black1c1) 70%, transparent) 65%,
+            transparent 100%);
+}
+
+.concept__container {
+    height: 100vh;
+    min-height: 100vh;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    will-change: opacity, transform;
+    z-index: 1;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: color-mix(in srgb, var(--black333) 30%, transparent);
+    }
+
+    @include mq("md") {
+        position: static; // absolute 完全解除
+        inset: auto;
+        height: auto; // 100vh解除
+        min-height: 100vh; // 1画面相当は確保
+        padding-block: rem(100);
+
+    }
+}
+
+.concept__container[data-index="01"] {
+    background-image:
+        image-set(url(../images/bg_top-concept01.avif) type("image/avif"),
+            url(../images/bg_top-concept01.jpg) type("image/jpg"));
+}
+
+.concept__container[data-index="02"] {
+    background-image:
+        image-set(url(../images/bg_top-concept02.avif) type("image/avif"),
+            url(../images/bg_top-concept02.jpg) type("image/jpg"));
+}
+
+.concept__container[data-index="03"] {
+    background-image:
+        image-set(url(../images/bg_top-concept03.avif) type("image/avif"),
+            url(../images/bg_top-concept03.jpg) type("image/jpg"));
+}
+
+.concept__container[data-index="04"] {
+    background-image:
+        image-set(url(../images/bg_top-concept04.avif) type("image/avif"),
+            url(../images/bg_top-concept04.jpg) type("image/jpg"));
+}
+
+
+.concept__inner {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+
+    @include mq("md") {
+        height: auto;
+    }
+}
+
+.concept__content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding-block: rem(100);
+
+    @include mq("md") {
+        padding-block: 0;
+    }
+}
+
+.concept__progress {
+    position: absolute;
+    z-index: 3;
+    bottom: rem(40);
+    left: 0;
+}
+
+.concept__text {
+    font-weight: var(--fw-medium);
+    font-size: rem(20);
+    line-height: calc(35 / 20);
+    text-align: center;
+    color: var(--black201);
+    max-width: rem(324);
+    height: auto;
+    aspect-ratio: 1;
+    background-color: color-mix(in srgb, var(--white) 70%, transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: 1px color-mix(in srgb, var(--white) 70%, transparent) solid;
+    outline-offset: 8px;
+    margin-top: rem(40);
+    margin-inline: auto;
+}
+
+.concept__link {
+    margin-top: rem(80);
+    display: flex;
+    justify-content: center;
+}

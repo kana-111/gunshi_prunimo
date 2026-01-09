@@ -30,6 +30,7 @@
 ////////////////////
 :root {
   --base-font: "Noto Serif JP", serif;
+  --second-font: "Noto Serif JP", serif;
   --fw-extralight: 200;
   --fw-light: 300;
   --fw-regular: 400;
@@ -47,8 +48,9 @@
 ////////////////////
 :root {
   --white: #fff;
-  --black01: #333;
-  --black02: #1c1b1b;
+  --black333: #333;
+  --black1c1: #1c1b1b;
+  --black201: #201502;
 
 }
 
@@ -85,12 +87,16 @@
   scrollbar-gutter: stable;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
   container-type: inline-size;
   font-family: var(--base-font);
   color: var(--white);
   font-weight: var(--fw-light);
-  background-color: var(--black01);
+  background-color: var(--black1c1);
   line-height: 1.5;
 
 }
