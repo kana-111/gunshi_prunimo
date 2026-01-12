@@ -58,7 +58,7 @@
         <div class="bg-video__container">
             <video class="js-bg-video" src="<?php echo get_template_directory_uri(); ?>/assets/images/bg_video.mp4" autoplay muted loop playsinline></video>
         </div>
-        <div class="intro__inner inner">
+        <div class="intro__inner bg-video__inner inner">
             <div class="intro__contents">
                 <div class="intro__gallery">
                     <figure class="intro__img01">
@@ -115,6 +115,7 @@
     $concepts = [
         [
             'text' => "ドッグファーストな<br>癒し空間。",
+            'img' => "bg_top-concept01",
             'link' => [
                 'url'  => '/',
                 'text' => '詳しくはこちら',
@@ -122,6 +123,7 @@
         ],
         [
             'text' => "“非日常”と“我が家”の<br>ちょうどいいバランス",
+            'img' => "bg_top-concept02",
             'link' => [
                 'url'  => '/',
                 'text' => '詳しくはこちら',
@@ -129,6 +131,7 @@
         ],
         [
             'text' => "地域との調和<br>四季の彩り",
+            'img' => "bg_top-concept03",
             'link' => [
                 'url'  => '/',
                 'text' => '詳しくはこちら',
@@ -136,6 +139,7 @@
         ],
         [
             'text' => "“ふわふわ”の<br>幸福感を届ける<br>デザインとサービス",
+            'img' => "bg_top-concept04",
             'link' => [
                 'url'  => '/',
                 'text' => '詳しくはこちら',
@@ -155,6 +159,15 @@
                 ?>
                 <div class="concept__container js-concept-container" data-index="<?php echo esc_attr($index); ?>">
                     <div class="concept__inner inner">
+                        <div class="concept__img">
+                            <picture>
+                                <source
+                                    srcset="<?php echo esc_url(get_template_directory_uri() . '/assets/images/' . $concept['img'] . '.avif'); ?>"
+                                    type="image/avif">
+                                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/' . $concept['img'] . '.jpg'); ?>"
+                                    alt="">
+                            </picture>
+                        </div>
                         <div class="concept__progress progress"
                             aria-hidden="true"
                             data-index="<?php echo esc_attr($index); ?>"
@@ -177,11 +190,9 @@
                                 );
                                 ?>
                             </div>
-
                             <p class="concept__text">
                                 <?php echo wp_kses_post($concept['text']); ?>
                             </p>
-
                             <div class="concept__link">
                                 <?php
                                 get_template_part(
@@ -269,7 +280,230 @@
                         </ul>
                     </div>
                 </div>
-                <div class="facilities__content">ああああ</div>
+                <div class="facilities__content">
+                    <div class="facilities__title">
+                        <?php get_template_part(
+                            'parts/component/title',
+                            null,
+                            [
+                                'en' => 'Introduction',
+                                'ja' => '施設紹介',
+                                'modifier' => 'left',
+                            ]
+                        );
+                        ?>
+                    </div>
+                    <p class="facilities__text text">
+                        ここにテキストが入ります。ここにテキストが入ります。<br>
+                        ここにテキストが入ります。ここにテキストが入ります。<br>
+                        ここにテキストが入ります。ここにテキストが入ります。<br>
+                        ここにテキストが入ります。
+                    </p>
+                    <div class="facilities__link">
+                        <?php
+                        get_template_part(
+                            'parts/component/more',
+                            null,
+                            [
+                                'url'      => '/',
+                                'text'     => '詳しくみる',
+                                'modifier' => '',
+                            ]
+                        );
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="reservation">
+        <div class="reservation__inner inner">
+            <div class="reservation__contents">
+                <div class="reservation__content">
+                    <div class="reservation__title">
+                        <?php get_template_part(
+                            'parts/component/title',
+                            null,
+                            [
+                                'en' => 'Reservation',
+                                'ja' => '料金・予約について',
+                                'modifier' => 'left',
+                            ]
+                        );
+                        ?>
+                    </div>
+                    <p class="reservation__text text">
+                        ここにテキストが入ります。ここにテキストが入ります。<br>
+                        ここにテキストが入ります。ここにテキストが入ります。<br>
+                        ここにテキストが入ります。ここにテキストが入ります。<br>
+                        ここにテキストが入ります。
+                    </p>
+                </div>
+                <div class="reservation__content">
+                    <dl class="reservation__list">
+                        <dt class="reservation__ttl">住所</dt>
+                        <dd class="reservation__item">
+                            〒289-1305 千葉県山武市本須賀２８９<br>
+                            <a href="" target="_blank">Google mapで見る</a>
+                        </dd>
+                    </dl>
+                    <dl class="reservation__list">
+                        <dt class="reservation__ttl">お車でお越しのかた</dt>
+                        <dd class="reservation__item">真亀JCTから県道30号と産業道路経由</dd>
+                    </dl>
+                    <dl class="reservation__list">
+                        <dt class="reservation__ttl">空港でお越しのかた</dt>
+                        <dd class="reservation__item">成田空港から車で約90分</dd>
+                    </dl>
+                    <div class="reservation__link">
+                        <?php
+                        get_template_part(
+                            'parts/component/more',
+                            null,
+                            [
+                                'url'      => '/',
+                                'text'     => '料金についてはこちら',
+                                'modifier' => '',
+                            ]
+                        );
+                        ?>
+                    </div>
+                    <div class="reservation__link">
+                        <?php
+                        get_template_part(
+                            'parts/component/more',
+                            null,
+                            [
+                                'url'      => '/',
+                                'text'     => 'ご予約はこちら',
+                                'modifier' => '',
+                            ]
+                        );
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="faq bg-video">
+        <div class="bg-video__container">
+            <video class="js-bg-video" src="<?php echo get_template_directory_uri(); ?>/assets/images/bg_video.mp4" autoplay muted loop playsinline></video>
+        </div>
+        <div class="faq__inner bg-video__inner inner">
+            <div class="faq__title">
+                <?php get_template_part(
+                    'parts/component/title',
+                    null,
+                    [
+                        'en' => 'faq',
+                        'ja' => 'よくある質問',
+                        'modifier' => 'faq',
+                    ]
+                );
+                ?>
+            </div>
+            <?php
+            $faqs = [
+                [
+                    'q' => 'テキストテキストテキストテキストテキストテキストテキストテキストテキスト1',
+                    'a' => 'テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト1',
+                ],
+                [
+                    'q' => 'テキストテキストテキストテキストテキストテキストテキストテキストテキスト2',
+                    'a' => 'テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト2',
+                ],
+                [
+                    'q' => 'テキストテキストテキストテキストテキストテキストテキストテキストテキスト3',
+                    'a' => 'テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト3',
+                ],
+                [
+                    'q' => 'テキストテキストテキストテキストテキストテキストテキストテキストテキスト4',
+                    'a' => 'テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト4',
+                ],
+                [
+                    'q' => 'テキストテキストテキストテキストテキストテキストテキストテキストテキスト5',
+                    'a' => 'テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト5',
+                ],
+            ];
+            ?>
+            <div class="faq__content">
+                <h3 class="faq__content-title">ペットに関して</h3>
+                <ul class="faq__list faq-list">
+                    <?php foreach ($faqs as $i => $faq) : ?>
+                        <li class="faq-list__item">
+                            <p class="faq-list__item-question js-faq-question">
+                                <span>Q.</span>
+                                <?php echo wp_kses_post($faq['q']); ?>
+                            </p>
+                            <p class="faq-list__item-answer">
+                                <span>A.</span>
+                                <?php echo wp_kses_post($faq['a']); ?>
+                            </p>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+                <div class="faq__link">
+                    <?php
+                    get_template_part(
+                        'parts/component/more',
+                        null,
+                        [
+                            'url'      => '/',
+                            'text'     => '詳しくみる',
+                            'modifier' => '',
+                        ]
+                    );
+                    ?>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="news">
+        <div class="news__inner inner">
+            <div class="news__title">
+                <?php get_template_part(
+                    'parts/component/title',
+                    null,
+                    [
+                        'en' => 'News',
+                        'ja' => 'お知らせ',
+                        'modifier' => 'black',
+                    ]
+                );
+                ?>
+            </div>
+            <ul class="news__list news-list">
+                <li class="news-list__item">
+                    <a href="" class="news-list__link">
+                        <time datetime="" class="news-list__date">2025.7.19</time>
+                        <h3 class="news-list__title">ここにテキストが入ります。ここにテキストが入ります。</h3>
+                    </a>
+                </li>
+                <li class="news-list__item">
+                    <a href="" class="news-list__link">
+                        <time datetime="" class="news-list__date">2025.7.19</time>
+                        <h3 class="news-list__title">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</h3>
+                    </a>
+                </li>
+                <li class="news-list__item">
+                    <a href="" class="news-list__link">
+                        <time datetime="" class="news-list__date">2025.7.19</time>
+                        <h3 class="news-list__title">ここにテキストが入ります。ここにテキストが入ります。</h3>
+                    </a>
+                </li>
+            </ul>
+            <div class="news__link">
+                <?php
+                get_template_part(
+                    'parts/component/more',
+                    null,
+                    [
+                        'url'      => '/',
+                        'text'     => '詳しくみる',
+                        'modifier' => 'black',
+                    ]
+                );
+                ?>
             </div>
         </div>
     </section>

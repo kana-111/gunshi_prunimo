@@ -1,0 +1,17 @@
+@use "global" as *;
+
+.news {
+    background-color: var(--white);
+    padding-block: rem(100);
+    color: var(--black333);
+}
+
+.news__list {
+    margin-top: rem(40);
+}
+
+.news__link {
+    margin-top: rem(40);
+    display: flex;
+    justify-content: right;
+}

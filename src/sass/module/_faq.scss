@@ -1,0 +1,19 @@
+@use "global" as *;
+
+.faq {
+    padding-block: rem(120);
+}
+
+.faq__content {
+    margin-top: rem(90);
+}
+
+.faq__list {
+    margin-top: rem(16);
+}
+
+.faq__link {
+    margin-top: rem(40);
+    display: flex;
+    justify-content: center;
+}

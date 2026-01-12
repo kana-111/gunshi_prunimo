@@ -2,6 +2,14 @@
 
 .facilities-slider {
     pointer-events: none;
+
+    @include mq("md") {
+        width: 100%;
+    }
+}
+
+.facilities-slider.js-facilities-slider02 {
+    transform: rotate(180deg);
 }
 
 .facilities-slider__wrapper {
@@ -13,6 +21,19 @@
     width: min(calc(366 / 1440 *100vw), rem(366));
     height: auto;
     margin-top: rem(8);
+
+    @include mq("md") {
+        // width: max-content;
+        // flex-shrink: 0;
+        margin-top: 0;
+        margin-left: rem(8);
+        width: 40%;
+    }
+}
+
+.js-facilities-slider02 .facilities-slider__slide {
+    transform: rotate(180deg);
+
 }
 
 .facilities-slider__slide picture,

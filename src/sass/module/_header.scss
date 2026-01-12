@@ -1,0 +1,22 @@
+@use "global" as *;
+
+.header {
+    padding-block: rem(20);
+}
+
+.header__inner.inner {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.header__cta {
+    width: max-content;
+    flex: 1;
+    display: flex;
+    justify-content: right;
+}
+
+.header__hamburger {
+    margin-left: rem(40)
+}

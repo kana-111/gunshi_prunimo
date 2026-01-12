@@ -21,6 +21,29 @@
 <body <?php body_class(); ?>>
   <?php wp_body_open(); ?>
 
-  <header>
-    header
+  <header class="header layout-header">
+    <div class="header__inner inner">
+      <div class="header__cta">
+        <?php
+        get_template_part(
+          'parts/component/button',
+          null,
+          [
+            'url'      => '/',
+            'text'     => 'ご予約はこちら',
+            'modifier' => 'sm',
+          ]
+        );
+        ?>
+      </div>
+      <button class="header__hamburger hamburger js-hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="hamburger__text">menu</span>
+      </button>
+    </div>
   </header>
+  <div class="drawer layout-drawer js-drawer">
+    <div class="drawer__container"></div>
+  </div>

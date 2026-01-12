@@ -16,27 +16,9 @@
 
     @include mq("md") {
         position: static;
-        // top: auto;
-        // height: auto;
-        // overflow: visible; // ✅ 内部スクロールしない
-        // scroll-snap-type: none;
-
-
-
-        // position: sticky;
-        // top: 0;
-        // overflow: auto;
-        // scroll-snap-type: y mandatory;
-        // height: 100vh;
-
-
     }
 }
 
-.concept__sticky.is-sticky {
-    outline: 3px solid #ff3b3b;
-    outline-offset: -3px;
-}
 
 
 
@@ -45,7 +27,7 @@
     left: 0;
     width: 100%;
     pointer-events: none;
-    z-index: 10;
+    z-index: 50;
     opacity: 0;
     will-change: opacity;
 
@@ -88,6 +70,62 @@
     will-change: opacity, transform;
     z-index: 1;
 
+
+    @include mq("md") {
+        position: static; // absolute 完全解除
+        inset: auto;
+        height: auto;
+        min-height: auto;
+        // padding-block: rem(100);
+        margin-top: rem(100);
+    }
+}
+
+// .concept__container[data-index="01"] {
+//     background-image:
+//         image-set(url(../images/bg_top-concept01.avif) type("image/avif"),
+//             url(../images/bg_top-concept01.jpg) type("image/jpg"));
+// }
+
+// .concept__container[data-index="02"] {
+//     background-image:
+//         image-set(url(../images/bg_top-concept02.avif) type("image/avif"),
+//             url(../images/bg_top-concept02.jpg) type("image/jpg"));
+// }
+
+// .concept__container[data-index="03"] {
+//     background-image:
+//         image-set(url(../images/bg_top-concept03.avif) type("image/avif"),
+//             url(../images/bg_top-concept03.jpg) type("image/jpg"));
+// }
+
+// .concept__container[data-index="04"] {
+//     background-image:
+//         image-set(url(../images/bg_top-concept04.avif) type("image/avif"),
+//             url(../images/bg_top-concept04.jpg) type("image/jpg"));
+// }
+
+
+.concept__inner {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    @include mq("md") {
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
+
+.concept__img {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    margin-inline: calc(50% - 50vw);
+
     &::before {
         content: "";
         position: absolute;
@@ -96,54 +134,25 @@
     }
 
     @include mq("md") {
-        position: static; // absolute 完全解除
+        margin-inline: auto;
+        position: relative;
         inset: auto;
-        height: auto; // 100vh解除
-        min-height: 100vh; // 1画面相当は確保
-        padding-block: rem(100);
-
-    }
-}
-
-.concept__container[data-index="01"] {
-    background-image:
-        image-set(url(../images/bg_top-concept01.avif) type("image/avif"),
-            url(../images/bg_top-concept01.jpg) type("image/jpg"));
-}
-
-.concept__container[data-index="02"] {
-    background-image:
-        image-set(url(../images/bg_top-concept02.avif) type("image/avif"),
-            url(../images/bg_top-concept02.jpg) type("image/jpg"));
-}
-
-.concept__container[data-index="03"] {
-    background-image:
-        image-set(url(../images/bg_top-concept03.avif) type("image/avif"),
-            url(../images/bg_top-concept03.jpg) type("image/jpg"));
-}
-
-.concept__container[data-index="04"] {
-    background-image:
-        image-set(url(../images/bg_top-concept04.avif) type("image/avif"),
-            url(../images/bg_top-concept04.jpg) type("image/jpg"));
-}
-
-
-.concept__inner {
-    position: relative;
-    z-index: 5;
-    display: flex;
-    align-items: center;
-
-    @include mq("md") {
+        width: 100%;
         height: auto;
+        aspect-ratio: 4 / 3;
     }
+}
+
+.concept__img picture,
+.concept__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .concept__content {
     position: relative;
-    z-index: 2;
+    z-index: 7;
     width: 100%;
     padding-block: rem(100);
 
@@ -157,6 +166,10 @@
     z-index: 3;
     bottom: rem(40);
     left: 0;
+
+    @include mq("md") {
+        display: none;
+    }
 }
 
 .concept__text {
@@ -176,6 +189,13 @@
     outline-offset: 8px;
     margin-top: rem(40);
     margin-inline: auto;
+
+    @include mq("md") {
+        aspect-ratio: auto;
+        outline: none;
+        background-color: transparent;
+        color: var(--white);
+    }
 }
 
 .concept__link {

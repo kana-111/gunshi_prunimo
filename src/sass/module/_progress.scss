@@ -24,7 +24,7 @@
 
 .concept__container:last-child .progress {
     &::after {
-        content: "01";
+        content: "";
     }
 }
 

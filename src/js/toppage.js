@@ -891,67 +891,67 @@ document.addEventListener("DOMContentLoaded", () => {
     // ✅ SP（修正版：.is-sticky 付与 + 既存SPロジック維持）
     //    ※PCには一切影響しない
     // =========================================================
-    mm.add("(max-width: 767px)", () => {
-        const section = document.querySelector(".js-concept");
-        if (!section) return;
+    // mm.add("(max-width: 767px)", () => {
+    //     const section = document.querySelector(".js-concept");
+    //     if (!section) return;
 
-        const sticky = section.querySelector(".concept__sticky");
-        if (!sticky) return;
+    //     const sticky = section.querySelector(".concept__sticky");
+    //     if (!sticky) return;
 
-        // ✅ PC由来の inline を掃除（必要最低限）
-        const slides = sticky.querySelectorAll(".js-concept-container");
-        if (slides.length) {
-            gsap.set(slides, { clearProps: "opacity,visibility,transform" });
-            gsap.set(slides, { autoAlpha: 1, y: 0 });
-            slides.forEach((s) => {
-                const content = s.querySelector(".js-concept-content");
-                if (content) gsap.set(content, { clearProps: "opacity,visibility,transform", autoAlpha: 1, y: 0 });
-            });
-        }
+    //     // ✅ PC由来の inline を掃除（必要最低限）
+    //     const slides = sticky.querySelectorAll(".js-concept-container");
+    //     if (slides.length) {
+    //         gsap.set(slides, { clearProps: "opacity,visibility,transform" });
+    //         gsap.set(slides, { autoAlpha: 1, y: 0 });
+    //         slides.forEach((s) => {
+    //             const content = s.querySelector(".js-concept-content");
+    //             if (content) gsap.set(content, { clearProps: "opacity,visibility,transform", autoAlpha: 1, y: 0 });
+    //         });
+    //     }
 
-        // =========================================================
-        // ✅ stickyの上部位置を監視（.conceptセクションを基準）
-        // =========================================================
-        // 固定ヘッダーがあるならここを高さ(px)に（なければ0）
-        const TOP_OFFSET = 0;
-        const EPS = 1; // 1pxの遊び
+    //     // =========================================================
+    //     // ✅ stickyの上部位置を監視（.conceptセクションを基準）
+    //     // =========================================================
+    //     // 固定ヘッダーがあるならここを高さ(px)に（なければ0）
+    //     const TOP_OFFSET = 0;
+    //     const EPS = 1; // 1pxの遊び
 
-        let isOn = false;
-        let rafId = 0;
+    //     let isOn = false;
+    //     let rafId = 0;
 
-        const tick = () => {
-            // .conceptセクションの位置を監視
-            const sectionRect = section.getBoundingClientRect();
-            const sectionTop = sectionRect.top;
+    //     const tick = () => {
+    //         // .conceptセクションの位置を監視
+    //         const sectionRect = section.getBoundingClientRect();
+    //         const sectionTop = sectionRect.top;
 
-            // セクション外ではOFF（下へ抜けたらOFF）
-            const inSection = sectionRect.bottom > TOP_OFFSET + EPS;
+    //         // セクション外ではOFF（下へ抜けたらOFF）
+    //         const inSection = sectionRect.bottom > TOP_OFFSET + EPS;
 
-            // .conceptセクションの上部が画面TOPに来たらON
-            const shouldOn = inSection && sectionTop <= TOP_OFFSET + EPS;
-            const shouldOff = !inSection || sectionTop > TOP_OFFSET + EPS;
+    //         // .conceptセクションの上部が画面TOPに来たらON
+    //         const shouldOn = inSection && sectionTop <= TOP_OFFSET + EPS;
+    //         const shouldOff = !inSection || sectionTop > TOP_OFFSET + EPS;
 
-            if (!isOn && shouldOn) {
-                isOn = true;
-                sticky.classList.add("is-sticky");
-                // console.log("🟢 is-sticky ON", sectionTop);
-            } else if (isOn && shouldOff) {
-                isOn = false;
-                sticky.classList.remove("is-sticky");
-                // console.log("🔴 is-sticky OFF", sectionTop);
-            }
+    //         if (!isOn && shouldOn) {
+    //             isOn = true;
+    //             sticky.classList.add("is-sticky");
+    //             // console.log("🟢 is-sticky ON", sectionTop);
+    //         } else if (isOn && shouldOff) {
+    //             isOn = false;
+    //             sticky.classList.remove("is-sticky");
+    //             // console.log("🔴 is-sticky OFF", sectionTop);
+    //         }
 
-            rafId = requestAnimationFrame(tick);
-        };
+    //         rafId = requestAnimationFrame(tick);
+    //     };
 
-        // ✅ スクロールイベントに依存しない（ここが効く）
-        rafId = requestAnimationFrame(tick);
+    //     // ✅ スクロールイベントに依存しない（ここが効く）
+    //     rafId = requestAnimationFrame(tick);
 
-        return () => {
-            cancelAnimationFrame(rafId);
-            sticky.classList.remove("is-sticky");
-        };
-    });
+    //     return () => {
+    //         cancelAnimationFrame(rafId);
+    //         sticky.classList.remove("is-sticky");
+    //     };
+    // });
 
 
 
@@ -964,49 +964,141 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// const facilitiesSlider01 = new Swiper('.js-facilities-slider01', {
-//     direction: 'vertical',
-//     loop: true,
-//     slidesPerView: 'auto',
 
-//     speed: 3000,
+// document.addEventListener("DOMContentLoaded", () => {
+//     const el01 = document.querySelector(".js-facilities-slider01");
+//     const el02 = document.querySelector(".js-facilities-slider02");
+//     if (!el01 || !el02) return;
 
-//     autoplay: {
-//         delay: 0,
-//         disableOnInteraction: false,
-//     },
+//     const wrapper01 = el01.querySelector(".swiper-wrapper");
+//     const wrapper02 = el02.querySelector(".swiper-wrapper");
+//     if (!wrapper01 || !wrapper02) return;
 
-//     freeMode: true,
-//     freeModeMomentum: false,
+//     // 02のスライドを退避（再利用するので clone しておく）
+//     const slides02Clones = Array.from(wrapper02.children).map((node) =>
+//         node.cloneNode(true)
+//     );
 
-//     allowTouchMove: false,
-//     grabCursor: false,
-//     simulateTouch: false, // ← マウス操作も無効
-//     loopAdditionalSlides: 10,
+//     let swiper01 = null;
+//     let swiper02 = null;
+
+//     const destroySwiper = (sw) => {
+//         if (sw && !sw.destroyed) sw.destroy(true, true);
+//     };
+
+//     const setup = () => {
+//         const isSP = window.matchMedia("(max-width: 767px)").matches;
+
+//         // 既存swiper破棄
+//         destroySwiper(swiper01);
+//         destroySwiper(swiper02);
+//         swiper01 = null;
+//         swiper02 = null;
+
+//         // wrapper01 を「元の状態」に戻す（SP→PC 戻り対応）
+//         // ※ data属性で初期HTMLを保持
+//         if (!wrapper01.dataset.initialHtml) {
+//             wrapper01.dataset.initialHtml = wrapper01.innerHTML;
+//         } else {
+//             wrapper01.innerHTML = wrapper01.dataset.initialHtml;
+//         }
+
+//         if (isSP) {
+//             // --- SP: 02の中身を01へ合流 ---
+//             slides02Clones.forEach((node) => wrapper01.appendChild(node));
+
+//             // --- SP: 横マルキー（安定版） ---
+//             swiper01 = new Swiper(".js-facilities-slider01", {
+//                 direction: "horizontal",
+//                 loop: true,
+//                 slidesPerView: "auto",
+
+//                 speed: 4000, // 1000だと速すぎ＆カクつきやすい
+//                 autoplay: {
+//                     delay: 0,
+//                     disableOnInteraction: false,
+//                 },
+
+//                 // ✅ ここが重要（delay:0 の流しっぱなしは freeMode が安定）
+//                 freeMode: true,
+//                 freeModeMomentum: false,
+
+//                 allowTouchMove: false,
+//                 simulateTouch: false,
+
+//                 loopAdditionalSlides: 10,
+
+//                 // ✅ 画像のサイズ確定待ち対策
+//                 observer: true,
+//                 observeParents: true,
+//                 watchSlidesProgress: true,
+//             });
+
+//             // linear必須
+//             el01.querySelector(".swiper-wrapper").style.transitionTimingFunction = "linear";
+
+//             // ✅ 画像読み込み後に幅が確定してから再計算＆autoplay開始
+//             const imgs = el01.querySelectorAll("img");
+//             const promises = Array.from(imgs).map((img) => {
+//                 if (img.complete) return Promise.resolve();
+//                 return new Promise((res) => img.addEventListener("load", res, { once: true }));
+//             });
+
+//             Promise.all(promises).then(() => {
+//                 if (!swiper01 || swiper01.destroyed) return;
+//                 swiper01.update();
+//                 swiper01.autoplay?.start();
+//             });
+
+//         }
+//         else {
+//             // --- PC: 縦2本（01,02） ---
+//             swiper01 = new Swiper(".js-facilities-slider01", {
+//                 direction: "vertical",
+//                 loop: true,
+//                 slidesPerView: "auto",
+//                 speed: 6000,
+//                 autoplay: {
+//                     delay: 0,
+//                     disableOnInteraction: false,
+//                 },
+//                 allowTouchMove: false,
+//                 simulateTouch: false,
+//                 loopAdditionalSlides: 10,
+//             });
+
+//             swiper02 = new Swiper(".js-facilities-slider02", {
+//                 direction: "vertical",
+//                 loop: true,
+//                 slidesPerView: "auto",
+//                 speed: 6000,
+//                 autoplay: {
+//                     delay: 0,
+//                     reverseDirection: true, // PCは逆流
+//                     disableOnInteraction: false,
+//                 },
+//                 allowTouchMove: false,
+//                 simulateTouch: false,
+//                 loopAdditionalSlides: 10,
+//             });
+
+//             // linear
+//             el01.querySelector(".swiper-wrapper").style.transitionTimingFunction =
+//                 "linear";
+//             el02.querySelector(".swiper-wrapper").style.transitionTimingFunction =
+//                 "linear";
+//         }
+//     };
+
+//     // 初期化 + リサイズ追従（matchMediaの変化で再構築）
+//     setup();
+//     window.addEventListener("resize", () => {
+//         // 連打対策（軽く）
+//         clearTimeout(window.__facilitiesSliderTimer);
+//         window.__facilitiesSliderTimer = setTimeout(setup, 150);
+//     });
 // });
 
-// const facilitiesSlider02 = new Swiper('.js-facilities-slider02', {
-//     direction: 'vertical',
-//     loop: true,
-//     slidesPerView: 'auto',
-
-//     speed: 3000,
-
-//     autoplay: {
-//         delay: 0,
-//         reverseDirection: true,
-//         disableOnInteraction: false,
-//     },
-
-//     freeMode: true,
-//     freeModeMomentum: false,
-
-//     allowTouchMove: false,
-//     grabCursor: false,
-//     simulateTouch: false, // ← マウス操作も無効
-
-//     loopAdditionalSlides: 10,
-// });
 document.addEventListener("DOMContentLoaded", () => {
     const el01 = document.querySelector(".js-facilities-slider01");
     const el02 = document.querySelector(".js-facilities-slider02");
@@ -1016,7 +1108,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const wrapper02 = el02.querySelector(".swiper-wrapper");
     if (!wrapper01 || !wrapper02) return;
 
-    // 02のスライドを退避（再利用するので clone しておく）
+    // 02のスライドを退避（SPで01へ合流する用）
     const slides02Clones = Array.from(wrapper02.children).map((node) =>
         node.cloneNode(true)
     );
@@ -1028,8 +1120,55 @@ document.addEventListener("DOMContentLoaded", () => {
         if (sw && !sw.destroyed) sw.destroy(true, true);
     };
 
+    const setLinear = (root) => {
+        const w = root?.querySelector(".swiper-wrapper");
+        if (w) w.style.transitionTimingFunction = "linear";
+    };
+
+    const waitImages = (root) => {
+        const imgs = root.querySelectorAll("img");
+        return Promise.all(
+            Array.from(imgs).map((img) => {
+                if (img.complete) return Promise.resolve();
+                return new Promise((res) =>
+                    img.addEventListener("load", res, { once: true })
+                );
+            })
+        );
+    };
+
+    // ✅ 初期ロード直後の“加速/ガクッ”対策：画像ロード→update→次フレームでautoplay開始
+    const startAutoplaySafely = async (sw, root, autoplayParams) => {
+        if (!sw || sw.destroyed) return;
+        await waitImages(root);
+        if (!sw || sw.destroyed) return;
+
+        sw.update();
+
+        requestAnimationFrame(() => {
+            if (!sw || sw.destroyed) return;
+            sw.params.autoplay = autoplayParams;
+            sw.autoplay?.start();
+        });
+    };
+
+    // ✅ resize連発での再初期化を避ける：BP跨ぎの時だけ作り直す
+    const mql = window.matchMedia("(max-width: 767px)");
+    let lastIsSP = null;
+
     const setup = () => {
-        const isSP = window.matchMedia("(max-width: 767px)").matches;
+        const isSP = mql.matches;
+        if (lastIsSP === isSP) return;
+        lastIsSP = isSP;
+
+        // SPは02を非表示 / PCは必ず表示に戻す
+        if (isSP) {
+            el02.style.display = "none";
+            el02.setAttribute("aria-hidden", "true");
+        } else {
+            el02.style.display = "";
+            el02.removeAttribute("aria-hidden");
+        }
 
         // 既存swiper破棄
         destroySwiper(swiper01);
@@ -1037,8 +1176,7 @@ document.addEventListener("DOMContentLoaded", () => {
         swiper01 = null;
         swiper02 = null;
 
-        // wrapper01 を「元の状態」に戻す（SP→PC 戻り対応）
-        // ※ data属性で初期HTMLを保持
+        // wrapper01 を元に戻す（SP→PC 戻り対応）
         if (!wrapper01.dataset.initialHtml) {
             wrapper01.dataset.initialHtml = wrapper01.innerHTML;
         } else {
@@ -1049,72 +1187,104 @@ document.addEventListener("DOMContentLoaded", () => {
             // --- SP: 02の中身を01へ合流 ---
             slides02Clones.forEach((node) => wrapper01.appendChild(node));
 
-            // --- SP: 横マルキー ---
+            // --- SP: 横マルキー（autoplayは後掛け） ---
             swiper01 = new Swiper(".js-facilities-slider01", {
                 direction: "horizontal",
                 loop: true,
                 slidesPerView: "auto",
                 speed: 4000,
-                autoplay: {
-                    delay: 0,
-                    disableOnInteraction: false,
-                },
 
-                // 操作無効（クリック/スワイプで止めない）
+                autoplay: false,
+
+                freeMode: true,
+                freeModeMomentum: false,
+
                 allowTouchMove: false,
                 simulateTouch: false,
 
-                // ループ安定化
-                loopAdditionalSlides: 10,
+                loopAdditionalSlides: 20,
+
+                // SPは合流でDOMを触るのでON
+                observer: true,
+                observeParents: true,
             });
 
-            // linear必須（減速/加速を防ぐ）
-            el01.querySelector(".swiper-wrapper").style.transitionTimingFunction =
-                "linear";
+            setLinear(el01);
+
+            startAutoplaySafely(swiper01, el01, {
+                delay: 0,
+                disableOnInteraction: false,
+            });
         } else {
-            // --- PC: 縦2本（01,02） ---
+            // --- PC: 縦2本（01,02）両方autoplay後掛け（安定） ---
             swiper01 = new Swiper(".js-facilities-slider01", {
                 direction: "vertical",
                 loop: true,
                 slidesPerView: "auto",
-                speed: 3000,
-                autoplay: {
-                    delay: 0,
-                    disableOnInteraction: false,
-                },
+                speed: 6000,
+
+                autoplay: false,
+
+                // ✅ delay:0 + loop の安定化
+                freeMode: true,
+                freeModeMomentum: false,
+
                 allowTouchMove: false,
                 simulateTouch: false,
-                loopAdditionalSlides: 10,
+
+                loopAdditionalSlides: 30,
+
+                // PCはOFF（変化検知→揺れの原因になりやすい）
+                observer: false,
+                observeParents: false,
             });
 
             swiper02 = new Swiper(".js-facilities-slider02", {
                 direction: "vertical",
                 loop: true,
                 slidesPerView: "auto",
-                speed: 3000,
-                autoplay: {
-                    delay: 0,
-                    reverseDirection: true, // PCは逆流
-                    disableOnInteraction: false,
-                },
+                speed: 6000,
+
+                autoplay: false,
+
+                // ✅ 逆再生はJSでやらない。freeModeで滑らかに。
+                freeMode: true,
+                freeModeMomentum: false,
+
                 allowTouchMove: false,
                 simulateTouch: false,
-                loopAdditionalSlides: 10,
+
+                loopAdditionalSlides: 30,
+
+                observer: false,
+                observeParents: false,
             });
 
-            // linear
-            el01.querySelector(".swiper-wrapper").style.transitionTimingFunction =
-                "linear";
-            el02.querySelector(".swiper-wrapper").style.transitionTimingFunction =
-                "linear";
+            setLinear(el01);
+            setLinear(el02);
+
+            startAutoplaySafely(swiper01, el01, {
+                delay: 0,
+                disableOnInteraction: false,
+            });
+
+            // ✅ reverseDirectionは使わない（CSS反転で逆に見せる）
+            startAutoplaySafely(swiper02, el02, {
+                delay: 0,
+                disableOnInteraction: false,
+            });
         }
     };
 
-    // 初期化 + リサイズ追従（matchMediaの変化で再構築）
     setup();
-    window.addEventListener("resize", () => {
-        // 連打対策（軽く）
-        clearTimeout(window.__facilitiesSliderTimer);
-        window.__facilitiesSliderTimer = setTimeout(setup, 150);
-    });
+
+    if (mql.addEventListener) {
+        mql.addEventListener("change", setup);
+    } else {
+        mql.addListener(setup); // 古いSafari対策
+    }
 });
+
+
+
+

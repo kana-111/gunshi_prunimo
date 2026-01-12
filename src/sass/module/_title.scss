@@ -7,10 +7,30 @@
 .title h2 {
     font-size: rem(60);
     letter-spacing: 0.05em;
+
+    @include mq("md") {
+        font-size: rem(42);
+    }
 }
 
 .title p {
     font-size: rem(25);
     letter-spacing: 0.05em;
 
+    @include mq("md") {
+        font-size: rem(18);
+    }
+
+}
+
+.title.title--left {
+    text-align: left;
+}
+
+.title.title--faq {
+    text-transform: uppercase;
+}
+
+.title.title--black {
+    color: var(--black333);
 }

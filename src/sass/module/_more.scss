@@ -28,3 +28,11 @@
         }
     }
 }
+
+.more.more--black {
+    border-color: var(--black333);
+
+    &::after {
+        border-color: inherit;
+    }
+}

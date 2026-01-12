@@ -1,0 +1,6 @@
+@use "global" as *;
+
+.text {
+    font-size: rem(15);
+    line-height: calc(25 / 15);
+}
