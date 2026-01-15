@@ -3,9 +3,9 @@
 
 .news-list__link {
     display: flex;
-    padding-block: rem(25);
+    padding-block: rem(32);
     padding-inline: rem(25) rem(50);
-    gap: calc(40 / 1440 *100vw);
+    gap: min(calc(74 / 1440 *100vw), rem(74));
     align-items: center;
     border-bottom: 1px solid var(--black333);
     position: relative;
@@ -14,7 +14,7 @@
         content: "";
         position: absolute;
         display: block;
-        top: rem(25);
+        top: 50%;
         right: 0;
         width: 10px;
         height: 5px;

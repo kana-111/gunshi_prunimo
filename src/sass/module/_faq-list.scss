@@ -4,7 +4,7 @@
 .faq-list__item {
     background-color: var(--white);
     color: var(--black233);
-    padding-inline: rem(25);
+    padding-inline: rem(40);
 
     @include mq("md") {
         padding-inline: rem(16);
@@ -13,27 +13,31 @@
 }
 
 .faq-list__item+.faq-list__item {
-    margin-top: rem(16);
+    margin-top: rem(10);
 }
 
 .faq-list__item-question,
 .faq-list__item-answer {
-    padding-block: rem(25);
+    padding-block: rem(33);
     padding-inline: 0 rem(25);
     font-size: rem(16);
-    line-height: calc(19.2 / 16);
+    line-height: 1.5;
     display: flex;
     position: relative;
+
+    @include mq("md") {
+        padding-block: rem(24);
+    }
 }
 
 .faq-list__item-question::after {
     content: "";
     position: absolute;
     display: block;
-    top: rem(25);
+    top: rem(48);
     right: 0;
-    width: 10px;
-    height: 5px;
+    width: 16px;
+    height: 7px;
     background-image: url(../images/icon_arrow.svg);
     background-size: contain;
     background-position: center;

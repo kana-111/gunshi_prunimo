@@ -40,7 +40,7 @@
           'text' => '宿泊約款',
         ],
         [
-          'url'  => '/',
+          'url'  => '/policy',
           'text' => 'プライバシーポリシー',
         ],
       ];
@@ -109,7 +109,7 @@
               'text' => 'コンセプト',
             ],
             [
-              'url'  => '/about#facilities',
+              'url'  => '/about/#facilities',
               'text' => '施設紹介',
             ],
             [
@@ -117,11 +117,11 @@
               'text' => '料金案内',
             ],
             [
-              'url'  => '/about#access',
+              'url'  => '/about/#access',
               'text' => 'アクセス',
             ],
             [
-              'url'  => '/about#faq',
+              'url'  => '/about/#faq',
               'text' => 'よくある質問',
             ],
             [

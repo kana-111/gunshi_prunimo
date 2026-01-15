@@ -4,7 +4,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: right;
-    gap: rem(16);
+    gap: rem(8) rem(16);
     position: relative;
 
     @include mq("md") {

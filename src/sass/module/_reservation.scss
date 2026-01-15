@@ -25,23 +25,37 @@
 
 .reservation__contents {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: auto 1fr;
+    gap: min(calc(380 / 1440 *100vw), rem(380));
 
     @include mq("md") {
         grid-template-columns: 1fr;
+        gap: 0;
     }
 }
 
 .reservation__content+.reservation__content {
-    margin-top: rem(80);
+    margin-top: rem(180);
+
+    @include mq("md") {
+        margin-top: rem(80);
+    }
 }
 
 .reservation__text {
-    margin-top: rem(40);
+    margin-top: rem(60);
+
+    @include mq("md") {
+        margin-top: rem(40);
+    }
 }
 
 .reservation__list+.reservation__list {
-    margin-top: rem(24);
+    margin-top: rem(40);
+
+    @include mq("md") {
+        margin-top: rem(20);
+    }
 }
 
 .reservation__ttl,
@@ -51,15 +65,20 @@
 }
 
 .reservation__item {
-    margin-top: rem(8);
+    margin-top: rem(13);
+
+    @include mq("md") {
+        margin-top: rem(8);
+    }
 }
 
+.reservation__item {}
 
 
 .reservation__link {
-    margin-top: rem(40);
+    margin-top: rem(52);
 }
 
 .reservation__link+.reservation__link {
-    margin-top: rem(8);
+    margin-top: rem(13);
 }

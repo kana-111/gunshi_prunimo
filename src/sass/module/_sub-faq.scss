@@ -1,0 +1,14 @@
+@use "global" as *;
+
+
+.sub-faq__content {
+    margin-top: rem(14);
+}
+
+.sub-faq__content+.sub-faq__content {
+    margin-top: rem(40);
+}
+
+.sub-faq__list {
+    margin-top: rem(21);
+}

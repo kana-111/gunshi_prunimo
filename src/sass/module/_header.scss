@@ -1,7 +1,12 @@
 @use "global" as *;
 
 .header {
-    padding-block: rem(20);
+    padding-block: rem(40);
+
+    @include mq("md") {
+        padding-block: rem(20);
+
+    }
 }
 
 .header__inner.inner {
@@ -9,6 +14,11 @@
     justify-content: right;
     align-items: center;
     max-width: 100%;
+    padding-inline: rem(53);
+
+    @include mq("md") {
+        padding-inline: rem(20);
+    }
 }
 
 .header__cta {

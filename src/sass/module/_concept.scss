@@ -146,8 +146,8 @@
 .concept__progress {
     position: absolute;
     z-index: 3;
-    bottom: rem(40);
-    left: 0;
+    bottom: rem(100);
+    left: rem(13);
 
     @include mq("md") {
         display: none;
@@ -169,7 +169,7 @@
     justify-content: center;
     outline: 1px color-mix(in srgb, var(--white) 70%, transparent) solid;
     outline-offset: 8px;
-    margin-top: rem(40);
+    margin-top: rem(30);
     margin-inline: auto;
 
     @include mq("md") {
@@ -183,7 +183,7 @@
 }
 
 .concept__link {
-    margin-top: rem(80);
+    margin-top: rem(70);
     display: flex;
     justify-content: center;
 

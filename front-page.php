@@ -307,7 +307,7 @@
                             [
                                 'url'      => '/about#facilities',
                                 'text'     => '詳しくみる',
-                                'modifier' => '',
+                                'modifier' => 'facilities',
                             ]
                         );
                         ?>
@@ -455,7 +455,7 @@
                         [
                             'url'      => '/about#faq',
                             'text'     => '詳しくみる',
-                            'modifier' => '',
+                            'modifier' => 'facilities',
                         ]
                     );
                     ?>

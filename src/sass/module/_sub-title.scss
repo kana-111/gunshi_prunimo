@@ -1,14 +1,19 @@
 @use "global" as *;
 
 .sub-title {
-    padding-block: rem(96);
+    padding-block: rem(96) rem(132);
     overflow-x: clip;
+
+    @include mq("md") {
+        padding-block: rem(80);
+
+    }
 }
 
 .sub-title__inner.inner {
     padding-inline: 0;
     display: grid;
-    grid-template-columns: 1fr min(calc(330 / 1440 *100vw), rem(330));
+    grid-template-columns: 1fr min(calc(227 / 1440 *100vw), rem(227));
 
     @include mq("md") {
         position: relative;
@@ -17,8 +22,10 @@
 
 .sub-title__image {
     margin-left: max(calc(50% - 50vw), rem(-100));
+    min-height: rem(485);
 
     @include mq("md") {
+        min-height: auto;
         margin-left: 0;
 
     }
@@ -38,9 +45,10 @@
 
 .sub-title__ttl {
     display: flex;
-    justify-content: center;
-    padding-inline: rem(40);
-    margin-top: rem(80);
+    justify-content: right;
+    padding-inline: rem(22);
+    margin-top: rem(96);
+    // align-items: center;
 
     @include mq("md") {
         position: absolute;
@@ -72,10 +80,13 @@
     writing-mode: vertical-rl;
     font-size: rem(58);
     letter-spacing: 0.05em;
+    font-weight: var(--fw-light);
+    margin-right: rem(10);
 
     @include mq("md") {
         writing-mode: horizontal-tb;
         font-size: rem(40);
+        margin-right: 0;
     }
 }
 
@@ -85,10 +96,13 @@
 
 .sub-title.sub-title--reverse .sub-title__ttl {
     direction: ltr;
+    justify-content: left;
+    margin-top: rem(80);
 
     @include mq("md") {
         right: auto;
         left: 0;
+        margin-top: 0;
     }
 
 }

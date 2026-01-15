@@ -13,7 +13,7 @@
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
-    padding-block: rem(130) rem(100);
+    padding-block: rem(96) rem(109);
 
     &::before {
         content: "";
@@ -60,6 +60,11 @@
 
 .sub-facilities__desc-title h3 {
     font-size: rem(16);
+    margin-top: rem(-6);
+
+    @include mq("md") {
+        margin-top: 0;
+    }
 }
 
 .sub-facilities__desc-texts {
@@ -68,9 +73,10 @@
 }
 
 .sub-facilities__desc-topText {
-    margin-top: rem(64);
+    margin-top: rem(84);
     width: min(calc(353 / 1440 * 100vw), rem(353));
     font-size: rem(30);
+    line-height: calc(40/30);
 
     @include mq("md") {
         width: 100%;
@@ -80,10 +86,11 @@
 }
 
 .sub-facilities__desc-bottomText {
-    margin-top: rem(47);
+    margin-top: rem(70);
     margin-left: min(calc(112 / 1440 * 100vw), rem(112));
     width: min(calc(334 / 1440 * 100vw), rem(334));
     font-size: rem(18);
+    line-height: calc(30/18);
 
     @include mq("md") {
         font-size: rem(16);
@@ -92,5 +99,5 @@
 }
 
 .sub-facilities__slider {
-    margin-top: rem(24);
+    margin-top: rem(32);
 }

@@ -239,7 +239,7 @@
             <?php endforeach; ?>
         </div>
     </section>
-    <section class="sub-faq" id="faq">
+    <section class="sub-faq layout-sub-faq" id="faq">
         <div class="sub-faq__title">
             <?php
             get_template_part(
@@ -358,7 +358,7 @@
             <?php endforeach; ?>
         </div>
     </section>
-    <section class="sub-access" id="access">
+    <section class="sub-access layout-sub-access" id="access">
         <div class="sub-access__title">
             <?php
             get_template_part(

@@ -1,5 +1,9 @@
 @use "global" as *;
 
+.sub-access {
+    padding-bottom: rem(112);
+}
+
 .sub-access__inner.inner {
     display: grid;
     grid-template-columns: 1fr min(calc(600 / 1440 *100vw), rem(600));
@@ -15,8 +19,8 @@
 .sub-access__info {
     display: grid;
     grid-template-columns: rem(120) 1fr;
-    gap: min(calc(24 / 1440 *100vw), rem(24));
-    padding-bottom: rem(24);
+    gap: min(calc(7 / 1440 *100vw), rem(7));
+    padding-bottom: rem(16);
     border-bottom: 1px solid var(--white);
 
     @include mq("md") {
@@ -27,7 +31,7 @@
 }
 
 .sub-access__info+.sub-access__info {
-    margin-top: rem(24);
+    margin-top: rem(16);
 }
 
 .sub-access__ttle,
