@@ -1,17 +1,93 @@
 document.addEventListener("DOMContentLoaded", () => {
+    prepareMvFadeInOnce();
     initMvSwiper();
     initConceptScroll();
     initFacilitiesSliders();
 });
 
 /* =========================================================
-   MV Swiper
+   MV: 初回だけフェード準備
 ========================================================= */
+function prepareMvFadeInOnce() {
+    const KEY = "mv_fade_done";
+    const isFirst = !sessionStorage.getItem(KEY);
+
+    if (!isFirst) {
+        // 2回目以降：即表示（フェード不要）
+        document.body.classList.add("is-mv-visible");
+        return;
+    }
+
+    // 初回：フェード用transitionを“先に”仕込む
+    document.body.classList.add("is-mv-fade");
+}
+
+
+/* =========================================================
+   MV Swiper（表示されてから動かす）
+========================================================= */
+
+// function initMvSwiper() {
+//     const elements = document.querySelectorAll(".js-mv-swiper");
+//     if (!elements.length) return;
+
+//     const KEY = "mv_fade_done";
+//     const isFirst = !sessionStorage.getItem(KEY);
+
+//     const FADE_DELAY = 2000; // 表示まで待つ時間（ms）
+
+//     elements.forEach((el) => {
+//         const sw = new Swiper(el, {
+//             loop: true,
+//             slidesPerView: 1,
+//             spaceBetween: 0,
+//             speed: 2000,
+//             effect: "fade",
+//             fadeEffect: { crossFade: true },
+
+//             autoplay: false,
+
+//             on: {
+//                 init() {
+//                     if (!isFirst) {
+//                         sw.params.autoplay = { delay: 2000, disableOnInteraction: false };
+//                         sw.autoplay.start();
+//                         return;
+//                     }
+
+//                     setTimeout(() => {
+//                         document.body.classList.add("is-mv-visible");
+
+//                         requestAnimationFrame(() => {
+//                             sw.update();
+//                             sw.params.autoplay = { delay: 2000, disableOnInteraction: false };
+//                             sw.autoplay.start();
+//                             sessionStorage.setItem(KEY, "1");
+//                         });
+//                     }, FADE_DELAY);
+//                 },
+//             },
+//         });
+//     });
+
+//     window.addEventListener("pageshow", (e) => {
+//         if (!e.persisted) return;
+//         document.body.classList.add("is-mv-visible");
+//         sessionStorage.setItem(KEY, "1");
+//     });
+// }
 function initMvSwiper() {
     const elements = document.querySelectorAll(".js-mv-swiper");
     if (!elements.length) return;
 
+    const KEY = "mv_fade_done";
+    const isFirst = !sessionStorage.getItem(KEY);
+
+    const FADE_DELAY = 1500; // 表示まで待つ(ms)
+
     elements.forEach((el) => {
+        const sliderRoot = el.closest(".mv-slider") || el;
+
         new Swiper(el, {
             loop: true,
             slidesPerView: 1,
@@ -19,11 +95,44 @@ function initMvSwiper() {
             speed: 2000,
             effect: "fade",
             fadeEffect: { crossFade: true },
-            autoplay: {
-                delay: 2000,
-                disableOnInteraction: false,
+
+            // 表示後に動かす
+            autoplay: false,
+
+            on: {
+                // arrow関数にしない（this を swiper にしたい）
+                init: function () {
+                    const swiper = this; // これが安全（FirefoxでもOK）
+
+                    // 2回目以降：即表示＆即開始
+                    if (!isFirst) {
+                        document.body.classList.add("is-mv-visible");
+                        swiper.params.autoplay = { delay: 2000, disableOnInteraction: false };
+                        swiper.autoplay.start();
+                        return;
+                    }
+
+                    // 初回：遅れて表示 → 表示後に開始
+                    setTimeout(() => {
+                        document.body.classList.add("is-mv-visible");
+
+                        requestAnimationFrame(() => {
+                            swiper.update();
+                            swiper.params.autoplay = { delay: 2000, disableOnInteraction: false };
+                            swiper.autoplay.start();
+                            sessionStorage.setItem(KEY, "1");
+                        });
+                    }, FADE_DELAY);
+                },
             },
         });
+    });
+
+    // bfcache対策（戻るで hidden 事故防止）
+    window.addEventListener("pageshow", (e) => {
+        if (!e.persisted) return;
+        document.body.classList.add("is-mv-visible");
+        sessionStorage.setItem(KEY, "1");
     });
 }
 
@@ -368,14 +477,18 @@ function initFacilitiesSliders() {
     const waitImages = (root) => {
         const imgs = root.querySelectorAll("img");
         return Promise.all(
-            Array.from(imgs).map((img) => {
-                if (img.complete) return Promise.resolve();
-                return new Promise((res) =>
-                    img.addEventListener("load", res, { once: true })
-                );
+            Array.from(imgs).map(async (img) => {
+                if (img.decode) {
+                    try { await img.decode(); } catch (_) { }
+                    return;
+                }
+
+                if (img.complete) return;
+                await new Promise((res) => img.addEventListener("load", res, { once: true }));
             })
         );
     };
+
 
     // 初期ロード直後の対策
     const startAutoplaySafely = async (sw, root, autoplayParams) => {
@@ -383,7 +496,11 @@ function initFacilitiesSliders() {
         await waitImages(root);
         if (!sw || sw.destroyed) return;
 
-        sw.update();
+        // ✅ iOSでupdateだけだと反映されないことがあるので分解して叩く
+        sw.updateSize();
+        sw.updateSlides();
+        sw.updateProgress();
+        sw.updateSlidesClasses();
 
         requestAnimationFrame(() => {
             if (!sw || sw.destroyed) return;
@@ -391,6 +508,7 @@ function initFacilitiesSliders() {
             sw.autoplay?.start();
         });
     };
+
 
     // resize連発での再初期化を避ける
     const mql = window.matchMedia("(max-width: 767px)");
@@ -451,7 +569,7 @@ function initFacilitiesSliders() {
             setLinear(el01);
 
             startAutoplaySafely(swiper01, el01, {
-                delay: 0,
+                delay: 1,
                 disableOnInteraction: false,
             });
             return;
