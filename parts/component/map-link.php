@@ -1,0 +1,1 @@
+<a href="https://maps.app.goo.gl/u6i5yFGSYqVjTi5D9" target="_blank" class="map-link">Google mapで見る</a>

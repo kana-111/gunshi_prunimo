@@ -12,7 +12,7 @@
     );
     ?>
   </div>
-  <div class="footer__cta">
+  <div class="footer__cta" id="contact">
     <a href="" class="footer__cta-link">
       <span>line</span>でお問い合わせ
     </a>
@@ -63,20 +63,25 @@
       <div class="footer__info-wrap">
         <div class="footer__info">
           <div class="footer__logo">
-            <picture>
-              <source
-                srcset="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/img_logo.avif"
-                type="image/avif">
-              <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/img_logo.png"
-                alt="愛犬と泊まれる宿プルニモ">
-            </picture>
+            <a href="<?php echo esc_url(home_url('/')) ?>">
+              <picture>
+                <source
+                  srcset="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/img_logo.avif"
+                  type="image/avif">
+                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/img_logo.png"
+                  alt="愛犬と泊まれる宿プルニモ">
+              </picture>
+            </a>
           </div>
           <div class="footer__address">
             <p class="footer__address-title">住所</p>
             <p class="footer__address-text">〒289-1305 千葉県山武市本須賀２８９</p>
-            <a href="" target="_blank" class="footer__address-link">
-              Google mapで見る
-            </a>
+            <?php
+            get_template_part(
+              'parts/component/map-link',
+              null,
+            );
+            ?>
           </div>
         </div>
         <div class="footer__nav-wrap">
@@ -100,27 +105,27 @@
               'text' => 'Home',
             ],
             [
-              'url'  => '/',
+              'url'  => '/#concept',
               'text' => 'コンセプト',
             ],
             [
-              'url'  => '/',
+              'url'  => '/about#facilities',
               'text' => '施設紹介',
             ],
             [
-              'url'  => '/',
+              'url'  => '/#reservation',
               'text' => '料金案内',
             ],
             [
-              'url'  => '/',
+              'url'  => '/about#access',
               'text' => 'アクセス',
             ],
             [
-              'url'  => '/',
+              'url'  => '/about#faq',
               'text' => 'よくある質問',
             ],
             [
-              'url'  => '/',
+              'url'  => '/news',
               'text' => 'ニュース',
             ],
           ];

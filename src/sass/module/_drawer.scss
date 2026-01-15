@@ -1,0 +1,112 @@
+@use "global" as *;
+
+
+.drawer {
+    background-color: color-mix(in srgb, var(--black333) 70%, transparent);
+    justify-content: right;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s;
+    display: flex;
+}
+
+.drawer.is-active {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.drawer__container {
+    padding-block: rem(120)rem(40);
+    width: 40%;
+    max-width: rem(500);
+    background-color: var(--black1c1);
+    translate: 100% 0;
+    transition: translate 0.5s;
+
+    @include mq("md") {
+        width: 90%;
+    }
+}
+
+.drawer__wrap {
+    overflow-y: auto;
+    height: 100%;
+}
+
+.drawer.is-active .drawer__container {
+    translate: 0;
+
+}
+
+.drawer__logo {
+    max-width: rem(200);
+    margin-inline: auto;
+
+    @include mq("md") {
+        max-width: rem(120);
+    }
+}
+
+.drawer__nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: rem(270);
+    margin-inline: auto;
+}
+
+.drawer__nav-link {
+    display: inline-block;
+    padding-block: rem(20);
+    padding-inline: rem(16);
+    font-size: rem(21);
+    font-weight: var(--fw-medium);
+    text-align: center;
+    width: 100%;
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-image: linear-gradient(to right,
+                var(--white) 0%,
+                var(--white) 100%);
+        background-repeat: no-repeat;
+        background-size: 0% 100%;
+        background-position: left bottom;
+        transition:
+            background-size 0.3s ease,
+    }
+
+    @media (any-hover: hover) {
+        &:hover {
+            &::after {
+                background-size: 100% 100%;
+            }
+        }
+    }
+
+    @include mq("md") {
+        font-size: rem(18);
+        padding: rem(16);
+    }
+}
+
+.drawer__contact-wrap {
+    margin-top: rem(40);
+}
+
+.drawer__contact {
+    display: flex;
+    justify-content: center;
+}
+
+.drawer__contact+.drawer__contact {
+    margin-top: rem(20);
+}

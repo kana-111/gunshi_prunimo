@@ -1,0 +1,61 @@
+@use "global" as *;
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background-color: color-mix(in srgb, var(--black333) 90%, transparent);
+    visibility: hidden;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    z-index: var(--z-index-drawer);
+    transition: opacity 0.3s, visibility 0.3s;
+    display: flex;
+
+}
+
+.modal.is-active {
+    align-items: center;
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal__overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.modal__inner.inner {
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+    position: relative;
+    z-index: 1;
+    align-items: center;
+    gap: rem(8);
+}
+
+.modal__close-button {
+    color: var(--white);
+    font-size: rem(12);
+    position: relative;
+    width: fit-content;
+    justify-self: right;
+    padding-top: rem(10);
+}
+
+.modal__close-button span {
+    display: inline-block;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+    position: absolute;
+    top: 0;
+}
+
+.modal__close-button span:nth-child(1) {
+    rotate: 205deg;
+}
+
+.modal__close-button span:nth-child(2) {
+    rotate: -205deg;
+}

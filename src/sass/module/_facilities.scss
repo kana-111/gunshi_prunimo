@@ -13,7 +13,7 @@
 
     @include mq("md") {
         grid-template-columns: 1fr;
-
+        margin-inline: 0;
     }
 }
 
@@ -40,6 +40,8 @@
 
     @include mq("md") {
         grid-template-columns: 1fr;
+        width: auto;
+        margin-inline: rem(-20);
     }
 }
 
@@ -58,4 +60,8 @@
 
 .facilities__link {
     margin-top: rem(80);
+
+    @include mq("md") {
+        margin-top: rem(40);
+    }
 }

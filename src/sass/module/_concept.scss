@@ -72,39 +72,19 @@
 
 
     @include mq("md") {
-        position: static; // absolute 完全解除
+        position: static;
         inset: auto;
         height: auto;
         min-height: auto;
-        // padding-block: rem(100);
-        margin-top: rem(100);
+        margin-top: rem(120);
     }
 }
 
-// .concept__container[data-index="01"] {
-//     background-image:
-//         image-set(url(../images/bg_top-concept01.avif) type("image/avif"),
-//             url(../images/bg_top-concept01.jpg) type("image/jpg"));
-// }
-
-// .concept__container[data-index="02"] {
-//     background-image:
-//         image-set(url(../images/bg_top-concept02.avif) type("image/avif"),
-//             url(../images/bg_top-concept02.jpg) type("image/jpg"));
-// }
-
-// .concept__container[data-index="03"] {
-//     background-image:
-//         image-set(url(../images/bg_top-concept03.avif) type("image/avif"),
-//             url(../images/bg_top-concept03.jpg) type("image/jpg"));
-// }
-
-// .concept__container[data-index="04"] {
-//     background-image:
-//         image-set(url(../images/bg_top-concept04.avif) type("image/avif"),
-//             url(../images/bg_top-concept04.jpg) type("image/jpg"));
-// }
-
+.concept__title {
+    @include mq("md") {
+        grid-row: 1/2;
+    }
+}
 
 .concept__inner {
     position: relative;
@@ -140,6 +120,7 @@
         width: 100%;
         height: auto;
         aspect-ratio: 4 / 3;
+        margin-top: rem(24);
     }
 }
 
@@ -158,6 +139,7 @@
 
     @include mq("md") {
         padding-block: 0;
+        display: contents;
     }
 }
 
@@ -195,6 +177,8 @@
         outline: none;
         background-color: transparent;
         color: var(--white);
+        font-size: rem(16);
+        margin-top: rem(24);
     }
 }
 
@@ -202,4 +186,9 @@
     margin-top: rem(80);
     display: flex;
     justify-content: center;
+
+    @include mq("md") {
+        justify-content: right;
+        margin-top: rem(40);
+    }
 }

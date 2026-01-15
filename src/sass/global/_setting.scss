@@ -102,3 +102,8 @@ body {
   line-height: 1.5;
 
 }
+
+body.is-hidden {
+  container-type: normal;
+  overflow: hidden;
+}

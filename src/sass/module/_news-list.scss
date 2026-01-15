@@ -24,12 +24,27 @@
         background-repeat: no-repeat;
         rotate: -90deg;
     }
+
+    @include mq("md") {
+        flex-direction: column;
+        padding-block: rem(25) rem(8);
+        padding-inline: 0 rem(24);
+        align-items: start;
+        gap: rem(8);
+
+        &::after {
+            top: auto;
+            bottom: rem(20);
+        }
+    }
 }
 
 .news-list__date {
     flex-shrink: 0;
     font-weight: var(--fw-semibold);
     font-size: rem(16);
+
+    @include mq("md") {}
 }
 
 .news-list__title {
@@ -40,4 +55,5 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    width: 100%;
 }

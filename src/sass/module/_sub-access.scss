@@ -1,0 +1,47 @@
+@use "global" as *;
+
+.sub-access__inner.inner {
+    display: grid;
+    grid-template-columns: 1fr min(calc(600 / 1440 *100vw), rem(600));
+    gap: min(calc(40 / 1440 *100vw), rem(40));
+    align-items: center;
+
+    @include mq("md") {
+        grid-template-columns: 1fr;
+        gap: rem(40);
+    }
+}
+
+.sub-access__info {
+    display: grid;
+    grid-template-columns: rem(120) 1fr;
+    gap: min(calc(24 / 1440 *100vw), rem(24));
+    padding-bottom: rem(24);
+    border-bottom: 1px solid var(--white);
+
+    @include mq("md") {
+        grid-template-columns: 1fr;
+        gap: rem(8);
+    }
+
+}
+
+.sub-access__info+.sub-access__info {
+    margin-top: rem(24);
+}
+
+.sub-access__ttle,
+.sub-access__item {
+    font-size: rem(16);
+    line-height: calc(30 / 16);
+}
+
+.sub-access__map {
+    filter: grayscale(1);
+}
+
+.sub-access__map iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 600 / 450;
+}

@@ -45,5 +45,77 @@
     </div>
   </header>
   <div class="drawer layout-drawer js-drawer">
-    <div class="drawer__container"></div>
+    <div class="drawer__container">
+      <div class="drawer__wrap">
+        <div class="drawer__inner inner">
+          <div class="drawer__logo">
+            <a href="<?php echo esc_url(home_url('/')) ?>">
+              <picture>
+                <source
+                  srcset="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/img_logo.avif"
+                  type="image/avif">
+                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/img_logo.png"
+                  alt="愛犬と泊まれる宿プルニモ">
+              </picture>
+            </a>
+          </div>
+          <?php
+          $headerNavs = [
+            [
+              'url'  => '/',
+              'text' => 'Home',
+            ],
+            [
+              'url'  => '/#concept',
+              'text' => 'コンセプト',
+            ],
+            [
+              'url'  => '/about#facilities',
+              'text' => '施設紹介',
+            ],
+            [
+              'url'  => '/#reservation',
+              'text' => '料金案内',
+            ],
+            [
+              'url'  => '/about#access',
+              'text' => 'アクセス',
+            ],
+            [
+              'url'  => '/about#faq',
+              'text' => 'よくある質問',
+            ],
+            [
+              'url'  => '/news',
+              'text' => 'ニュース',
+            ],
+          ];
+          ?>
+          <ul class="drawer__nav">
+            <?php foreach ($headerNavs as $i => $headerNav) : ?>
+              <li class="drawer__nav-item">
+                <a href="<?php echo esc_url($headerNav['url']); ?>"" class=" drawer__nav-link">
+                  <?php echo esc_html($headerNav['text']); ?>
+                </a>
+              </li>
+            <?php endforeach; ?>
+          </ul>
+          <div class="drawer__contact-wrap">
+            <div class="drawer__contact">
+              <?php
+              get_template_part(
+                'parts/component/button',
+                null,
+                [
+                  'url'      => '/#contact',
+                  'text'     => 'お問い合わせ',
+                  'modifier' => '',
+                ]
+              );
+              ?>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>

@@ -6,6 +6,10 @@
     justify-content: right;
     gap: rem(16);
     position: relative;
+
+    @include mq("md") {
+        justify-content: left;
+    }
 }
 
 .footer-nav__item a {
@@ -13,6 +17,7 @@
     align-items: center;
     gap: rem(8);
     position: relative;
+    font-size: rem(16);
 
     &::before {
         content: "";

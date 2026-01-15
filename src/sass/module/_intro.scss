@@ -12,12 +12,21 @@
 .intro__contents {
     display: flex;
     gap: min(calc(120 / 1440 * 100vw), rem(120));
+
+    @include mq("md") {
+        flex-direction: column;
+        gap: rem(80);
+    }
 }
 
 .intro__textarea {
     padding-right: rem(32);
     align-self: center;
     flex-shrink: 0;
+
+    @include mq("md") {
+        padding: 0;
+    }
 }
 
 .intro__title {
@@ -25,6 +34,10 @@
     font-size: rem(30);
     line-height: calc(60 / 30);
     letter-spacing: 0.1em;
+
+    @include mq("md") {
+        font-size: rem(24);
+    }
 }
 
 .intro__text {
@@ -32,6 +45,10 @@
     font-size: rem(18);
     line-height: calc(30 / 18);
     letter-spacing: 0;
+
+    @include mq("md") {
+        font-size: rem(16);
+    }
 }
 
 
@@ -41,12 +58,21 @@
     gap: calc(28 / 1440 * 100vw);
     position: relative;
     margin-left: max(calc(50% - 50vw), rem(-40));
+
+    @include mq("md") {
+        gap: rem(16);
+    }
 }
 
 .intro__img01 {
     width: min(calc(347 / 1440 *100vw), rem(347));
     height: auto;
     aspect-ratio: 347 / 252;
+
+    @include mq("md") {
+        width: min(calc(195 / 390 *100vw), rem(195));
+
+    }
 }
 
 .intro__img02 {
@@ -58,6 +84,11 @@
     grid-row: 1 / 2;
     top: rem(100);
 
+    @include mq("md") {
+        width: min(calc(100 / 390 *100vw), rem(100));
+
+    }
+
 }
 
 .intro__img03 {
@@ -67,6 +98,11 @@
     justify-self: right;
     grid-column: 1 / 2;
     grid-row: 2 / 3;
+
+    @include mq("md") {
+        width: min(calc(150 / 390 *100vw), rem(150));
+
+    }
 
 }
 
@@ -78,4 +114,8 @@
     grid-row: 2 / 3;
     margin-left: min(calc(56 / 1440 * 100vw), rem(56));
     margin-top: rem(126);
+
+    @include mq("md") {
+        width: 100%;
+    }
 }

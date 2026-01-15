@@ -15,6 +15,10 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: rem(4);
+
+    @include mq("md") {
+        grid-template-columns: 1fr;
+    }
 }
 
 .footer__cta-link {
@@ -60,6 +64,11 @@
             }
         }
     }
+
+    @include mq("md") {
+        padding-block: rem(40);
+        font-size: rem(16);
+    }
 }
 
 
@@ -79,12 +88,15 @@
 .footer__cta-link span {
     font-size: rem(40);
     text-transform: uppercase;
+
+    @include mq("md") {
+        font-size: rem(32);
+    }
 }
 
 
 .footer__contents {
     padding-block: rem(80) rem(40);
-    // display: none;
 }
 
 .footer__links {
@@ -94,12 +106,32 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: min(calc(16 / 1440 *100vw), rem(16));
+
+    @include mq("md") {
+        grid-template-columns: repeat(auto-fit, minmax(rem(200), 1fr));
+        margin-inline: rem(0);
+    }
+}
+
+.footer__links .button {
+    justify-self: center;
 }
 
 .footer__info-wrap {
     display: grid;
     grid-template-columns: 1fr rem(360);
     margin-inline: rem(25);
+
+    @include mq("md") {
+        grid-template-columns: 1fr;
+        margin-inline: 0;
+    }
+}
+
+.footer__info {
+    @include mq("md") {
+        margin-top: rem(64);
+    }
 }
 
 .footer__logo {
@@ -115,42 +147,31 @@
     margin-top: rem(8);
 }
 
-.footer__address-link {
-    display: flex;
-    width: fit-content;
-    gap: 0.25rem;
-    align-items: center;
-    margin-top: 0.5rem;
-    padding-bottom: 0.25rem;
-    border-bottom: 1px var(--white) solid;
-    opacity: 1;
-    transition: opacity 0.3s;
-
-    &::before {
-        content: "";
-        width: 0.9375rem;
-        height: 1.375rem;
-        background-image: url(../images/icon_pin.svg);
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
-    @media (any-hover: hover) {
-        &:hover {
-            opacity: 0.7;
-        }
-    }
-}
 
 .footer__nav-reservation {
     margin-top: rem(64);
     display: flex;
     justify-content: right;
+
+    @include mq("md") {
+        margin-top: rem(40);
+        justify-content: left;
+    }
+}
+
+.footer__nav-wrap {
+    @include mq("md") {
+        grid-row: 1/2;
+
+    }
 }
 
 .footer__nav {
     margin-top: rem(80);
+
+    @include mq("md") {
+        margin-top: rem(32);
+    }
 }
 
 .footer__copy {
@@ -160,4 +181,8 @@
     font-weight: var(--fw-regular);
     font-size: rem(13);
     letter-spacing: 0.05em;
+
+    @include mq("md") {
+        grid-column: unset;
+    }
 }

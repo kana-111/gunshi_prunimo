@@ -1,0 +1,28 @@
+@use "global" as *;
+
+.page-template {
+    padding-bottom: rem(80);
+}
+
+.page-template__content {
+    background-color: var(--white);
+    color: var(--black1c1);
+    padding: rem(40) rem(20);
+}
+
+.page-template__content p {
+    font-size: rem(16);
+    min-height: 1em;
+}
+
+.page-template__content h2 {
+    font-size: rem(20);
+    font-weight: var(--fw-medium);
+}
+
+.page-template__content ol {
+    list-style-type: decimal;
+    padding-left: rem(20);
+}
+
+.page-template__content li {}

@@ -148,7 +148,7 @@
     ];
     ?>
 
-    <section class="concept js-concept" aria-label="Concept">
+    <section class="concept js-concept" aria-label="Concept" id="concept">
         <div class="concept__sticky">
             <div class="concept__fade concept__fade--top" aria-hidden="true"></div>
             <div class="concept__fade concept__fade--bottom" aria-hidden="true"></div>
@@ -305,7 +305,7 @@
                             'parts/component/more',
                             null,
                             [
-                                'url'      => '/',
+                                'url'      => '/about#facilities',
                                 'text'     => '詳しくみる',
                                 'modifier' => '',
                             ]
@@ -316,7 +316,7 @@
             </div>
         </div>
     </section>
-    <section class="reservation">
+    <section class="reservation" id="reservation">
         <div class="reservation__inner inner">
             <div class="reservation__contents">
                 <div class="reservation__content">
@@ -344,7 +344,12 @@
                         <dt class="reservation__ttl">住所</dt>
                         <dd class="reservation__item">
                             〒289-1305 千葉県山武市本須賀２８９<br>
-                            <a href="" target="_blank">Google mapで見る</a>
+                            <?php
+                            get_template_part(
+                                'parts/component/map-link',
+                                null,
+                            );
+                            ?>
                         </dd>
                     </dl>
                     <dl class="reservation__list">
@@ -426,7 +431,7 @@
                 ],
             ];
             ?>
-            <div class="faq__content">
+            <div class="faq__content js-faq-content">
                 <h3 class="faq__content-title">ペットに関して</h3>
                 <ul class="faq__list faq-list">
                     <?php foreach ($faqs as $i => $faq) : ?>
@@ -448,7 +453,7 @@
                         'parts/component/more',
                         null,
                         [
-                            'url'      => '/',
+                            'url'      => '/about#faq',
                             'text'     => '詳しくみる',
                             'modifier' => '',
                         ]
@@ -458,7 +463,7 @@
             </div>
         </div>
     </section>
-    <section class="news">
+    <section class="news change-color">
         <div class="news__inner inner">
             <div class="news__title">
                 <?php get_template_part(
@@ -473,32 +478,43 @@
                 ?>
             </div>
             <ul class="news__list news-list">
-                <li class="news-list__item">
-                    <a href="" class="news-list__link">
-                        <time datetime="" class="news-list__date">2025.7.19</time>
-                        <h3 class="news-list__title">ここにテキストが入ります。ここにテキストが入ります。</h3>
-                    </a>
-                </li>
-                <li class="news-list__item">
-                    <a href="" class="news-list__link">
-                        <time datetime="" class="news-list__date">2025.7.19</time>
-                        <h3 class="news-list__title">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</h3>
-                    </a>
-                </li>
-                <li class="news-list__item">
-                    <a href="" class="news-list__link">
-                        <time datetime="" class="news-list__date">2025.7.19</time>
-                        <h3 class="news-list__title">ここにテキストが入ります。ここにテキストが入ります。</h3>
-                    </a>
-                </li>
+                <?php
+                $news_query = new WP_Query([
+                    'post_type'      => 'post', // 通常の投稿
+                    'posts_per_page' => 3,      // 3件表示
+                    'post_status'    => 'publish',
+                ]);
+
+                if ($news_query->have_posts()) :
+                    while ($news_query->have_posts()) :
+                        $news_query->the_post();
+                ?>
+                        <li class="news-list__item">
+                            <a href="<?php the_permalink(); ?>" class="news-list__link">
+                                <time
+                                    datetime="<?php echo esc_attr(get_the_date('c')); ?>"
+                                    class="news-list__date">
+                                    <?php echo esc_html(get_the_date('Y.m.d')); ?>
+                                </time>
+                                <h3 class="news-list__title">
+                                    <?php the_title(); ?>
+                                </h3>
+                            </a>
+                        </li>
+                <?php
+                    endwhile;
+                    wp_reset_postdata();
+                endif;
+                ?>
             </ul>
+
             <div class="news__link">
                 <?php
                 get_template_part(
                     'parts/component/more',
                     null,
                     [
-                        'url'      => '/',
+                        'url'      => '/news',
                         'text'     => '詳しくみる',
                         'modifier' => 'black',
                     ]

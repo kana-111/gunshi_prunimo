@@ -1,0 +1,41 @@
+@use "global" as *;
+
+.sub-facilities-slider {
+    overflow: visible;
+}
+
+.sub-facilities-slider__wrapper {
+    transition-timing-function: linear;
+    gap: rem(8);
+}
+
+.sub-facilities-slider__slide {
+    width: min(calc(742 / 1440 * 100vw), rem(742));
+    cursor: pointer;
+}
+
+.sub-facilities-slider__slide img,
+.sub-facilities-slider__slide picture {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 742 / 320;
+    object-fit: cover;
+}
+
+.sub-facilities-slider__pagination.swiper-pagination {
+    bottom: rem(-40);
+    width: max-content;
+    left: auto;
+    right: calc(50% - min(48vw, rem(400)));
+}
+
+.sub-facilities-slider__pagination .swiper-pagination-bullet {
+    width: rem(20);
+    height: rem(1);
+    background-color: var(--white);
+    opacity: 1;
+}
+
+.sub-facilities-slider__pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: var(--ochre);
+}
