@@ -1,0 +1,94 @@
+@use "global" as *;
+
+.article {
+    color: var(--black1c1);
+}
+
+.article__date {
+    font-size: rem(16);
+}
+
+.article__title {
+    font-weight: var(--fw-medium);
+    font-size: rem(30);
+
+    @include mq("md") {
+        font-size: rem(26);
+    }
+}
+
+.article__thumbnail {
+    margin-top: rem(40);
+}
+
+.article__content {
+    margin-top: rem(40);
+}
+
+.article__content {
+    line-height: 1.5;
+    letter-spacing: 0.05em;
+
+    * {
+        margin-top: rem(8);
+    }
+
+    h2 {
+        font-weight: var(--fw-medium);
+        font-size: rem(24);
+        border-left: rem(8) solid var(--ochre);
+        padding-left: rem(16);
+
+        @include mq("md") {
+            font-size: rem(20);
+        }
+    }
+
+    h3 {
+        font-weight: var(--fw-medium);
+        font-size: rem(22);
+        padding-bottom: rem(8);
+        border-bottom: 2px solid #b3b3b3;
+        padding-inline: rem(16);
+        position: relative;
+
+        @include mq("md") {
+            font-size: rem(18);
+        }
+
+        &::before {
+            content: "";
+            display: block;
+            width: min(calc(200 / 1440 * 100vw), rem(200));
+            height: 2px;
+            top: 100%;
+            left: 0;
+            background-color: var(--ochre);
+            position: absolute;
+        }
+    }
+
+    p {
+        font-size: rem(18);
+        min-height: 1em;
+
+        @include mq("md") {
+            font-size: rem(16);
+        }
+    }
+
+    .wp-block-image {
+        display: block;
+        height: auto;
+    }
+
+    .alignright {
+        margin-left: auto;
+        float: none;
+    }
+}
+
+.article__nav {
+    margin-top: rem(80);
+    border-top: 1px solid var(--black1c1);
+}

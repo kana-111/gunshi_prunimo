@@ -11,5 +11,5 @@ if ($modifier) {
 
 <hgroup class="<?php echo esc_attr($classes); ?>">
     <h2><?php echo esc_html($en); ?></h2>
-    <p><?php echo esc_html($ja); ?></p>
+    <p><?php echo wp_kses_post($ja); ?></p>
 </hgroup>

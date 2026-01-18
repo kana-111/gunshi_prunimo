@@ -1,0 +1,31 @@
+@use "global" as *;
+
+.sub-404 {
+    background-color: var(--white);
+    padding-block: rem(100);
+
+    @include mq("md") {
+        padding-block: rem(80);
+    }
+}
+
+.sub-404__text {
+    margin-top: rem(80);
+    color: var(--black1c1);
+    text-align: center;
+    font-size: rem(16);
+
+    @include mq("md") {
+        margin-top: rem(40);
+    }
+}
+
+.sub-404__link {
+    margin-top: rem(100);
+    display: flex;
+    justify-content: center;
+
+    @include mq("md") {
+        margin-top: rem(40);
+    }
+}

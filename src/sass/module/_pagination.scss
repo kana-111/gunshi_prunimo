@@ -1,0 +1,43 @@
+@use "global" as *;
+
+.pagination .nav-links {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-numbers {
+    display: flex;
+    width: rem(32);
+    height: rem(32);
+    justify-content: center;
+    align-items: center;
+    color: var(--black1c1);
+    border: 1px solid currentColor;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.page-numbers.next,
+.page-numbers.prev {
+    &::before {
+        content: "";
+        width: rem(8);
+        height: rem(8);
+        border-top: inherit;
+        border-right: inherit;
+        rotate: 45deg;
+    }
+}
+
+.page-numbers.prev {
+    &::before {
+        rotate: -135deg;
+    }
+}
+
+.page-numbers.current,
+.page-numbers:hover {
+    background-color: var(--black1c1);
+    color: var(--white);
+}

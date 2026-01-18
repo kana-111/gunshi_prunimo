@@ -1,0 +1,11 @@
+@use "global" as *;
+
+.single__wrapper {
+    background-color: var(--white);
+    padding-block: rem(120);
+
+}
+
+.single__inner.inner {
+    max-width: rem(900);
+}

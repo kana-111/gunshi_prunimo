@@ -1,0 +1,52 @@
+.editor-styles-wrapper {
+    line-height: 1.5;
+    letter-spacing: 0.05em;
+}
+
+.editor-styles-wrapper * {
+    margin-top: 8px;
+}
+
+.editor-styles-wrapper h2 {
+    font-weight: 500;
+    font-size: 24px;
+    border-left: 8px solid #a69675;
+    padding-left: 16px;
+}
+
+.editor-styles-wrapper h3 {
+    font-weight: 500;
+    font-size: 22px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #b3b3b3;
+    padding-inline: 16px;
+    position: relative;
+
+
+}
+
+.editor-styles-wrapper h3::before {
+    content: "";
+    display: block;
+    width: min(calc(200 / 1440 * 100vw), 200px);
+    height: 2px;
+    top: 100%;
+    left: 0;
+    background-color: #a69675;
+    position: absolute;
+}
+
+.editor-styles-wrapper p {
+    font-size: 18px;
+    min-height: 1em;
+}
+
+.editor-styles-wrapper .wp-block-image {
+    display: block;
+    height: auto;
+}
+
+.editor-styles-wrapper .alignright {
+    margin-left: auto;
+    float: none;
+}
