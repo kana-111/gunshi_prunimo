@@ -48,7 +48,7 @@
     <div class="drawer__container">
       <div class="drawer__wrap">
         <div class="drawer__inner inner">
-          <div class="drawer__logo">
+          <!-- <div class="drawer__logo">
             <a href="<?php echo esc_url(home_url('/')) ?>">
               <picture>
                 <source
@@ -58,7 +58,7 @@
                   alt="愛犬と泊まれる宿プルニモ">
               </picture>
             </a>
-          </div>
+          </div> -->
           <?php
           $headerNavs = [
             [
