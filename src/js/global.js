@@ -103,6 +103,7 @@ function initBgVideoPlaybackRate() {
 /* =========================
    FAQ
 ========================= */
+
 jQuery(($) => {
     const $contents = $(".js-faq-content");
     if ($contents.length === 0) return;
@@ -118,12 +119,33 @@ jQuery(($) => {
         $firstQuestion.addClass("is-open");
     });
 
-    // ===== クリック挙動 =====
+    // ===== クリック挙動（1つだけ開く）=====
     $(".js-faq-question").on("click", function () {
-        $(this).next().slideToggle();
-        $(this).toggleClass("is-open");
+        const $question = $(this);
+        const $answer = $question.next();
+        const $container = $question.closest(".js-faq-content");
+
+        // すでに開いている場合 → 閉じるだけ
+        if ($question.hasClass("is-open")) {
+            $answer.slideUp();
+            $question.removeClass("is-open");
+            return;
+        }
+
+        // 他に開いているFAQを閉じる
+        $container.find(".js-faq-question.is-open").each(function () {
+            $(this)
+                .removeClass("is-open")
+                .next()
+                .slideUp();
+        });
+
+        // クリックされたFAQを開く
+        $answer.slideDown();
+        $question.addClass("is-open");
     });
 });
+
 /* =========================
    Anchor manager
 ========================= */
