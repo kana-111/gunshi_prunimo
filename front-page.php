@@ -5,7 +5,6 @@
             <div class="mv-slider__wrapper swiper-wrapper">
                 <div class="mv-slider__slide swiper-slide">
                     <div class="mv-slider__image">
-
                         <picture>
                             <!-- PC: avif -->
                             <source

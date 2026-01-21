@@ -1,6 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     initHeaderColorChange();
+    initHeaderLogoVisibility();
     initDrawer();
     initBgVideoPlaybackRate();
     initAnchorManager();
@@ -40,6 +41,43 @@ function initHeaderColorChange() {
     window.addEventListener("scroll", requestUpdate, { passive: true });
     window.addEventListener("resize", requestUpdate);
     update(); // 初期判定
+}
+/* =========================
+   Header logo visibility
+========================= */
+function initHeaderLogoVisibility() {
+    const header = document.querySelector(".header");
+    const logo = document.querySelector(".js-header-logo"); // ロゴ要素にこのclass付けてね
+    const mv = document.querySelector(".mv");               // MVがあるページはこれが存在する想定
+    if (!header || !logo) return;
+
+    const CLASS_VISIBLE = "is-logo-visible";
+    let ticking = false;
+
+    // mv がないページ → 常に表示
+    if (!mv) {
+        header.classList.add(CLASS_VISIBLE);
+        return;
+    }
+
+    // mv の下端（ドキュメント上のY座標）を毎回算出（高さが変わるMVでもOK）
+    const getMvBottomY = () => mv.getBoundingClientRect().bottom + window.scrollY;
+
+    const update = () => {
+        ticking = false;
+        const show = window.scrollY > getMvBottomY();
+        header.classList.toggle(CLASS_VISIBLE, show);
+    };
+
+    const requestUpdate = () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(update);
+    };
+
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+    update(); // 初期判定（リロード時にも反映）
 }
 
 /* =========================

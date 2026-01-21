@@ -23,6 +23,17 @@
 
   <header class="header layout-header">
     <div class="header__inner inner">
+      <div class="header__logo js-header-logo">
+        <a href="<?php echo esc_url(home_url('/')) ?>">
+          <picture>
+            <source
+              srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_logo.avif"
+              type="image/avif">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/img_logo.png"
+              alt="愛犬と泊まれる宿プルニモ">
+          </picture>
+        </a>
+      </div>
       <div class="header__cta">
         <?php
         get_template_part(
@@ -48,26 +59,11 @@
     <div class="drawer__container">
       <div class="drawer__wrap">
         <div class="drawer__inner inner">
-          <!-- <div class="drawer__logo">
-            <a href="<?php echo esc_url(home_url('/')) ?>">
-              <picture>
-                <source
-                  srcset="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/img_logo.avif"
-                  type="image/avif">
-                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/img_logo.png"
-                  alt="愛犬と泊まれる宿プルニモ">
-              </picture>
-            </a>
-          </div> -->
           <?php
           $headerNavs = [
             [
               'url'  => '/',
               'text' => 'Home',
-            ],
-            [
-              'url'  => '/#concept',
-              'text' => 'コンセプト',
             ],
             [
               'url'  => '/about#facilities',
