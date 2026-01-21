@@ -16,7 +16,7 @@
     <a href="" class="footer__cta-link">
       <span>line</span>でお問い合わせ
     </a>
-    <a href="" class="footer__cta-link">
+    <a href="<?php echo esc_url(home_url('/contact')) ?>" class="footer__cta-link">
       <span>メール</span>でお問い合わせ
     </a>
   </div>

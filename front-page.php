@@ -5,12 +5,24 @@
             <div class="mv-slider__wrapper swiper-wrapper">
                 <div class="mv-slider__slide swiper-slide">
                     <div class="mv-slider__image">
+
                         <picture>
+                            <!-- PC: avif -->
                             <source
                                 srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-mv01.avif"
                                 type="image/avif"
                                 media="(min-width: 768px)">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-mv01.jpg"
+                            <!-- PC: jpg -->
+                            <source
+                                srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-mv01.jpg"
+                                type="image/jpeg"
+                                media="(min-width: 768px)">
+                            <!-- SP: avif -->
+                            <source
+                                srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-mv01_sp.avif"
+                                type="image/avif">
+                            <!-- SP: jpg fallback -->
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-mv01_sp.jpg"
                                 alt="">
                         </picture>
                     </div>
@@ -18,11 +30,22 @@
                 <div class="mv-slider__slide swiper-slide">
                     <div class="mv-slider__image">
                         <picture>
+                            <!-- PC: avif -->
                             <source
                                 srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-mv02.avif"
                                 type="image/avif"
                                 media="(min-width: 768px)">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-mv02.jpg"
+                            <!-- PC: jpg -->
+                            <source
+                                srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-mv02.jpg"
+                                type="image/jpeg"
+                                media="(min-width: 768px)">
+                            <!-- SP: avif -->
+                            <source
+                                srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-mv02_sp.avif"
+                                type="image/avif">
+                            <!-- SP: jpg fallback -->
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-mv02_sp.jpg"
                                 alt="">
                         </picture>
                     </div>
@@ -30,11 +53,22 @@
                 <div class="mv-slider__slide swiper-slide">
                     <div class="mv-slider__image">
                         <picture>
+                            <!-- PC: avif -->
                             <source
                                 srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-mv03.avif"
                                 type="image/avif"
                                 media="(min-width: 768px)">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-mv03.jpg"
+                            <!-- PC: jpg -->
+                            <source
+                                srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-mv03.jpg"
+                                type="image/jpeg"
+                                media="(min-width: 768px)">
+                            <!-- SP: avif -->
+                            <source
+                                srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-mv03_sp.avif"
+                                type="image/avif">
+                            <!-- SP: jpg fallback -->
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-mv03_sp.jpg"
                                 alt="">
                         </picture>
                     </div>
@@ -117,7 +151,7 @@
             'text' => "ドッグファーストな<br>癒し空間。",
             'img' => "bg_top-concept01",
             'link' => [
-                'url'  => '/',
+                'url'  => 'about',
                 'text' => '詳しくはこちら',
             ],
         ],
@@ -125,7 +159,7 @@
             'text' => "“非日常”と“我が家”の<br>ちょうどいいバランス",
             'img' => "bg_top-concept02",
             'link' => [
-                'url'  => '/',
+                'url'  => 'about',
                 'text' => '詳しくはこちら',
             ],
         ],
@@ -133,7 +167,7 @@
             'text' => "地域との調和<br>四季の彩り",
             'img' => "bg_top-concept03",
             'link' => [
-                'url'  => '/',
+                'url'  => 'about',
                 'text' => '詳しくはこちら',
             ],
         ],
@@ -141,7 +175,7 @@
             'text' => "“ふわふわ”の<br>幸福感を届ける<br>デザインとサービス",
             'img' => "bg_top-concept04",
             'link' => [
-                'url'  => '/',
+                'url'  => 'about',
                 'text' => '詳しくはこちら',
             ],
         ],
