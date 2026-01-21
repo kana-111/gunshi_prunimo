@@ -27,55 +27,6 @@ function prepareMvFadeInOnce() {
    MV Swiper（表示されてから動かす）
 ========================================================= */
 
-// function initMvSwiper() {
-//     const elements = document.querySelectorAll(".js-mv-swiper");
-//     if (!elements.length) return;
-
-//     const KEY = "mv_fade_done";
-//     const isFirst = !sessionStorage.getItem(KEY);
-
-//     const FADE_DELAY = 2000; // 表示まで待つ時間（ms）
-
-//     elements.forEach((el) => {
-//         const sw = new Swiper(el, {
-//             loop: true,
-//             slidesPerView: 1,
-//             spaceBetween: 0,
-//             speed: 2000,
-//             effect: "fade",
-//             fadeEffect: { crossFade: true },
-
-//             autoplay: false,
-
-//             on: {
-//                 init() {
-//                     if (!isFirst) {
-//                         sw.params.autoplay = { delay: 2000, disableOnInteraction: false };
-//                         sw.autoplay.start();
-//                         return;
-//                     }
-
-//                     setTimeout(() => {
-//                         document.body.classList.add("is-mv-visible");
-
-//                         requestAnimationFrame(() => {
-//                             sw.update();
-//                             sw.params.autoplay = { delay: 2000, disableOnInteraction: false };
-//                             sw.autoplay.start();
-//                             sessionStorage.setItem(KEY, "1");
-//                         });
-//                     }, FADE_DELAY);
-//                 },
-//             },
-//         });
-//     });
-
-//     window.addEventListener("pageshow", (e) => {
-//         if (!e.persisted) return;
-//         document.body.classList.add("is-mv-visible");
-//         sessionStorage.setItem(KEY, "1");
-//     });
-// }
 function initMvSwiper() {
     const elements = document.querySelectorAll(".js-mv-swiper");
     if (!elements.length) return;
@@ -163,7 +114,7 @@ function initConceptScroll() {
     const mm = gsap.matchMedia();
 
     mm.add("(min-width: 768px)", () => {
-        const STEP = 2000;
+        const STEP = 1000;
         const TOTAL = STEP * containers.length;
 
         // 遷移直後ガード（ちらつき対策）
@@ -580,7 +531,7 @@ function initFacilitiesSliders() {
             direction: "vertical",
             loop: true,
             slidesPerView: "auto",
-            speed: 6000,
+            speed: 10000,
 
             autoplay: false,
 
@@ -600,7 +551,7 @@ function initFacilitiesSliders() {
             direction: "vertical",
             loop: true,
             slidesPerView: "auto",
-            speed: 6000,
+            speed: 10000,
 
             autoplay: false,
 

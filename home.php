@@ -19,7 +19,7 @@
 <main class="sub-news">
     <section class="news change-color">
         <div class="news__inner inner">
-            <ul class="news__list news-list">
+            <ul class="news-list">
                 <?php if (have_posts()) : ?>
                     <?php while (have_posts()) : the_post(); ?>
                         <li class="news-list__item">
