@@ -1,6 +1,10 @@
-//facilities-slider
+
+/* =========================
+   facilities-slider（marquee）
+========================= */
 document.addEventListener("DOMContentLoaded", () => {
     initMarqueeSwipers();
+    initModal();
 });
 
 function initMarqueeSwipers() {
@@ -66,7 +70,6 @@ function createMarqueeSwiper(root) {
 
     startSafely();
 
-    // リサイズ時に幅が変わっても速度ブレしにくくする
     let resizeTimer = null;
     window.addEventListener("resize", () => {
         clearTimeout(resizeTimer);
@@ -78,13 +81,7 @@ function createMarqueeSwiper(root) {
     });
 }
 
-
-
 //modal
-document.addEventListener("DOMContentLoaded", () => {
-    initModal();
-});
-
 function initModal() {
     const body = document.body;
 
@@ -99,34 +96,79 @@ function initModal() {
     /** @type {HTMLElement|null} */
     let lastFocused = null;
 
+    /** @type {Map<HTMLElement, any>} */
+    const modalSwiperMap = new Map();
+
     const getModalById = (id) => document.getElementById(id);
 
-    const openModal = (modal, opener) => {
+    const waitImages = (el) => {
+        const imgs = el.querySelectorAll("img");
+        return Promise.all(
+            Array.from(imgs).map((img) => {
+                if (img.complete) return Promise.resolve();
+                return new Promise((res) => img.addEventListener("load", res, { once: true }));
+            })
+        );
+    };
+
+    //モーダル内スライダー
+    const ensureModalSwiper = async (modal, startIndex = 0) => {
+        const swiperRoot = modal.querySelector(".js-modal-swiper");
+        if (!swiperRoot) return;
+
+        await waitImages(swiperRoot);
+
+        let sw = modalSwiperMap.get(modal);
+
+        if (!sw) {
+            sw = new Swiper(swiperRoot, {
+                initialSlide: startIndex,
+                loop: true,
+                effect: "fade",
+                fadeEffect: {
+                    crossFade: true,
+                },
+                speed: 1000,
+                navigation: {
+                    nextEl: modal.querySelector(".modal-slider__next"),
+                    prevEl: modal.querySelector(".modal-slider__prev"),
+                },
+                observer: true,
+                observeParents: true,
+            });
+
+            modalSwiperMap.set(modal, sw);
+        } else {
+            sw.update();
+            sw.slideTo(startIndex, 0);
+        }
+    };
+
+    const openModal = (modal, opener, startIndex = 0) => {
         if (!modal) return;
 
-        // すでに開いてたら閉じてから
         if (activeModal && activeModal !== modal) closeModal();
 
         activeModal = modal;
         lastFocused = opener || document.activeElement;
 
         modal.classList.add(ACTIVE_CLASS);
-        modal.removeAttribute("aria-hidden");
+        modal.setAttribute("aria-hidden", "false");
         body.classList.add(HIDDEN_CLASS);
 
-        // フォーカスをモーダルへ（閉じるボタン優先）
         const focusTarget =
             modal.querySelector(CLOSE_SELECTOR) ||
-            modal.querySelector(
-                'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
-            ) ||
+            modal.querySelector('a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])') ||
             modal;
 
-        // tabindex がないと focus できない場合があるので保険
         if (!modal.hasAttribute("tabindex")) modal.setAttribute("tabindex", "-1");
 
         requestAnimationFrame(() => {
             focusTarget && focusTarget.focus?.();
+
+            requestAnimationFrame(() => {
+                ensureModalSwiper(modal, startIndex);
+            });
         });
     };
 
@@ -141,13 +183,11 @@ function initModal() {
         activeModal = null;
         lastFocused = null;
 
-        // 元のトリガーへフォーカスを戻す
         if (restore && typeof restore.focus === "function") {
             requestAnimationFrame(() => restore.focus());
         }
     };
 
-    // クリックで open（イベント委譲）
     document.addEventListener("click", (e) => {
         const opener = e.target.closest(OPEN_SELECTOR);
         if (!opener) return;
@@ -158,11 +198,12 @@ function initModal() {
         const modal = getModalById(targetId);
         if (!modal) return;
 
+        const startIndex = Number(opener.dataset.index || 0);
+
         e.preventDefault();
-        openModal(modal, opener);
+        openModal(modal, opener, startIndex);
     });
 
-    // クリックで close（×ボタン / overlay など）
     document.addEventListener("click", (e) => {
         const closer = e.target.closest(CLOSE_SELECTOR);
         if (!closer) return;
@@ -181,9 +222,14 @@ function initModal() {
         closeModal();
     });
 
-    // 万一、DOMから消された/非表示になったときの保険（任意）
+    // リサイズ時：開いているモーダル内Swiperを更新
+    let resizeTimer = null;
     window.addEventListener("resize", () => {
         if (!activeModal) return;
-        // 状況に応じて閉じたい場合はここで closeModal(); してもOK
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            const sw = modalSwiperMap.get(activeModal);
+            if (sw && !sw.destroyed) sw.update();
+        }, 150);
     });
 }

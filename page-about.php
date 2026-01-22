@@ -189,7 +189,7 @@
                         </div>
                     </div>
                     <div class="sub-facilities__slider sub-facilities-slider swiper js-sub-facilities-slider">
-                        <ul class="sub-facilities-slider__wrapper swiper-wrapper">
+                        <!-- <ul class="sub-facilities-slider__wrapper swiper-wrapper">
                             <?php foreach ($subFacility['slider'] as $j => $slide) : ?>
                                 <?php
                                 $modalId = 'modal-' . $i . '-' . $j;
@@ -211,16 +211,42 @@
                                 </li>
 
                             <?php endforeach; ?>
+                        </ul> -->
+                        <ul class="sub-facilities-slider__wrapper swiper-wrapper">
+                            <?php foreach ($subFacility['slider'] as $j => $slide) : ?>
+                                <?php
+                                // ★ モーダルは「施設ごと」に1つ
+                                $modalId = 'modal-' . $i;
+
+                                $imgBase  = esc_attr($slide['img']); // filename
+                                $alt      = esc_attr($slide['alt'] ?? '');
+                                $basePath = esc_url(get_template_directory_uri() . '/assets/images/');
+                                ?>
+                                <li class="sub-facilities-slider__slide swiper-slide">
+                                    <div
+                                        class="sub-facilities-slider__item js-modal-open"
+                                        data-target="<?php echo esc_attr($modalId); ?>"
+                                        data-index="<?php echo esc_attr($j); ?>">
+                                        <div class="sub-facilities-slider__item-img">
+                                            <picture>
+                                                <source srcset="<?php echo $basePath . $imgBase; ?>.avif" type="image/avif">
+                                                <img src="<?php echo $basePath . $imgBase; ?>.jpg" alt="<?php echo $alt; ?>">
+                                            </picture>
+                                        </div>
+                                    </div>
+                                </li>
+                            <?php endforeach; ?>
                         </ul>
+
                         <div class="sub-facilities-slider__pagination swiper-pagination"></div>
                     </div>
-                    <?php foreach ($subFacility['slider'] as $j => $slide) : ?>
+                    <!-- <?php foreach ($subFacility['slider'] as $j => $slide) : ?>
                         <?php
-                        $modalId = 'modal-' . $i . '-' . $j;
+                                $modalId = 'modal-' . $i . '-' . $j;
 
-                        $imgBase  = esc_attr($slide['img']);
-                        $alt      = esc_attr($slide['alt'] ?? '');
-                        $basePath = esc_url(get_template_directory_uri() . '/assets/images/');
+                                $imgBase  = esc_attr($slide['img']);
+                                $alt      = esc_attr($slide['alt'] ?? '');
+                                $basePath = esc_url(get_template_directory_uri() . '/assets/images/');
                         ?>
                         <div class="sub-facilities-slider__modal modal js-modal" id="<?php echo $modalId; ?>" aria-hidden="true">
                             <div class="modal__overlay js-modal-close"></div>
@@ -234,7 +260,46 @@
                                 </div>
                             </div>
                         </div>
-                    <?php endforeach; ?>
+                    <?php endforeach; ?> -->
+                    <?php
+                    $modalId  = 'modal-' . $i; // ★施設ごとに1つ
+                    $basePath = esc_url(get_template_directory_uri() . '/assets/images/');
+                    ?>
+
+                    <div class="sub-facilities-slider__modal modal js-modal"
+                        id="<?php echo esc_attr($modalId); ?>"
+                        aria-hidden="true">
+                        <div class="modal__overlay js-modal-close"></div>
+
+                        <div class="modal__inner inner" role="dialog" aria-modal="true">
+                            <button class="modal__close-button js-modal-close" type="button">
+                                <span></span><span></span>close
+                            </button>
+
+                            <!-- ★モーダル内でスライドできるSwiper -->
+                            <div class="modal__slider modal-slider swiper js-modal-swiper">
+                                <div class="swiper-wrapper modal-slider__wrapper">
+                                    <?php foreach ($subFacility['slider'] as $j => $slide) : ?>
+                                        <?php
+                                        $imgBase = esc_attr($slide['img']);
+                                        $alt     = esc_attr($slide['alt'] ?? '');
+                                        ?>
+                                        <div class="swiper-slide modal-slider__slide">
+                                            <div class="modal__img">
+                                                <picture>
+                                                    <source srcset="<?php echo $basePath . $imgBase; ?>.avif" type="image/avif">
+                                                    <img src="<?php echo $basePath . $imgBase; ?>.jpg" alt="<?php echo $alt; ?>">
+                                                </picture>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                            <div class="modal-slider__prev swiper-button-prev"></div>
+                            <div class="modal-slider__next swiper-button-next"></div>
+                        </div>
+                    </div>
+
                 </div>
             <?php endforeach; ?>
         </div>

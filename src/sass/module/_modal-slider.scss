@@ -1,0 +1,31 @@
+@use "global" as *;
+
+.modal-slider__prev,
+.modal-slider__next {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    color: var(--white);
+    width: rem(60);
+    height: rem(60);
+    display: block;
+    border-top: 2px solid var(--white);
+    border-right: 2px solid var(--white);
+    rotate: 45deg;
+    translate: -25% 0;
+
+    @include mq("md") {
+        width: rem(30);
+        height: rem(30);
+    }
+
+    &::after {
+        content: "";
+    }
+}
+
+.modal-slider__prev {
+    rotate: -135deg;
+    left: 0;
+    translate: 25% 0;
+}
