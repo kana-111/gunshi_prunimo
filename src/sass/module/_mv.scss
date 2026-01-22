@@ -31,13 +31,42 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: min(calc(348 / 1440 *100vw), rem(348));
+    opacity: 0;
 
     @include mq("md") {
         width: 60%;
         max-width: rem(330);
+    }
+
+}
+
+
+body.is-mv-fade .mv__logo {
+    animation: slide 1.0s ease 0.5s forwards;
+}
+
+@keyframes slide {
+    0% {
+        clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+        opacity: 0;
+
+    }
+
+    100% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        opacity: 1;
+
 
     }
 }
+
+
+body.is-mv-visible .mv__logo {
+    opacity: 1;
+    clip-path: none;
+    animation: none;
+}
+
 
 .mv__logo img,
 .mv__logo picture {

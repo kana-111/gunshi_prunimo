@@ -47,20 +47,20 @@ function initHeaderColorChange() {
 ========================= */
 function initHeaderLogoVisibility() {
     const header = document.querySelector(".header");
-    const logo = document.querySelector(".js-header-logo"); // ロゴ要素にこのclass付けてね
-    const mv = document.querySelector(".mv");               // MVがあるページはこれが存在する想定
+    const logo = document.querySelector(".js-header-logo");
+    const mv = document.querySelector(".mv");
     if (!header || !logo) return;
 
     const CLASS_VISIBLE = "is-logo-visible";
     let ticking = false;
 
-    // mv がないページ → 常に表示
+    // mv がないページ
     if (!mv) {
         header.classList.add(CLASS_VISIBLE);
         return;
     }
 
-    // mv の下端（ドキュメント上のY座標）を毎回算出（高さが変わるMVでもOK）
+    // mv の下端
     const getMvBottomY = () => mv.getBoundingClientRect().bottom + window.scrollY;
 
     const update = () => {
@@ -77,7 +77,7 @@ function initHeaderLogoVisibility() {
 
     window.addEventListener("scroll", requestUpdate, { passive: true });
     window.addEventListener("resize", requestUpdate);
-    update(); // 初期判定（リロード時にも反映）
+    update();
 }
 
 /* =========================
@@ -112,7 +112,7 @@ function initDrawer() {
 
     hamburger.addEventListener("click", toggle);
 
-    // overlay（背景）クリックで閉じる：中身クリックは無視
+    // overlay（背景）クリックで閉じる
     drawer.addEventListener("click", (e) => {
         if (e.target.closest(containerSelector)) return;
         close();
@@ -203,12 +203,6 @@ function initAnchorManager() {
         document.body.classList.remove(CLASS_HIDDEN);
     };
 
-    // const getHeaderOffset = () => {
-    //     if (!header) return 0;
-    //     // fixed/sticky想定：現在の表示高さを差し引く
-    //     return Math.ceil(header.getBoundingClientRect().height || 0);
-    // };
-
     const getHeaderOffset = () => 0;
 
 
@@ -271,7 +265,6 @@ function initAnchorManager() {
                 }
             }
         } catch (_) {
-            // URLとして解釈できない href は無視
         }
     });
 

@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
     initMvSwiper();
     initConceptScroll();
     initFacilitiesSliders();
+    initIntroParallax();
+    initIntroFadeSequence();
 });
 
 /* =========================================================
@@ -34,7 +36,7 @@ function initMvSwiper() {
     const KEY = "mv_fade_done";
     const isFirst = !sessionStorage.getItem(KEY);
 
-    const FADE_DELAY = 1500; // 表示まで待つ(ms)
+    const FADE_DELAY = 2000; // 表示まで待つ(ms)
 
     elements.forEach((el) => {
         const sliderRoot = el.closest(".mv-slider") || el;
@@ -86,6 +88,89 @@ function initMvSwiper() {
         sessionStorage.setItem(KEY, "1");
     });
 }
+/* =========================================================
+   intro parallax
+========================================================= */
+//パララックス
+function initIntroParallax() {
+    const gallery = document.querySelector(".intro__gallery");
+    if (!gallery) return;
+
+    const imgs = Array.from(gallery.querySelectorAll("figure img"));
+    if (!imgs.length) return;
+
+    // data-shift が無い場合のデフォルト移動量(px)
+    const DEFAULT_SHIFT = 40;
+
+    let ticking = false;
+
+    const clamp01 = (v) => Math.max(0, Math.min(1, v));
+
+    const update = () => {
+        ticking = false;
+
+        const vh = window.innerHeight || document.documentElement.clientHeight;
+
+        imgs.forEach((img) => {
+            const rect = img.getBoundingClientRect();
+
+            if (rect.bottom < 0 || rect.top > vh) return;
+
+            const progress = clamp01((vh - rect.top) / (vh + rect.height));
+
+            const fig = img.closest("figure");
+            const shift = fig?.dataset.shift ? Number(fig.dataset.shift) : DEFAULT_SHIFT;
+
+            const y = -shift * progress;
+
+            img.style.transform = `translate3d(0, ${y}px, 0)`;
+        });
+    };
+
+    const requestUpdate = () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(update);
+    };
+
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+    update();
+}
+
+//順番にふわっと表示
+function initIntroFadeSequence() {
+    const items = document.querySelectorAll(".intro__img");
+    if (!items.length) return;
+
+    const DELAY_STEP = 120; // 次の画像までの遅延(ms)
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+
+                const el = entry.target;
+                const index = Array.from(items).indexOf(el);
+
+                // index に応じて少しずつ遅らせる
+                el.style.transitionDelay = `${index * DELAY_STEP}ms`;
+                el.classList.add("is-visible");
+
+                // 1回表示したら監視解除
+                observer.unobserve(el);
+            });
+        },
+        {
+            root: null,
+            rootMargin: "0px 0px -15% 0px", // 少し早めに発火
+            threshold: 0.1,
+        }
+    );
+
+    items.forEach((item) => observer.observe(item));
+}
+
 
 /* =========================================================
    Concept
@@ -117,10 +202,10 @@ function initConceptScroll() {
         const STEP = 1000;
         const TOTAL = STEP * containers.length;
 
-        // 遷移直後ガード（ちらつき対策）
+        // ちらつき対策
         let justFinishedTransition = false;
 
-        // クールダウン（解除直後の入力を少し無効化）
+        // 解除直後の入力を少し無効化
         let coolDown = false;
         const COOLDOWN_MS = 120;
 
@@ -177,7 +262,7 @@ function initConceptScroll() {
             }, COOLDOWN_MS);
         };
 
-        // 固定スタック（z-index順）
+        // 固定スタック
         const applyStack = () => {
             containers.forEach((c, i) => {
                 gsap.set(c, { zIndex: containers.length - i });
@@ -368,7 +453,7 @@ function initConceptScroll() {
             },
         });
 
-        // 下フェード（出口）
+        // 下フェード
         let bottomST = null;
         if (fadeBottom) {
             bottomST = ScrollTrigger.create({
@@ -447,7 +532,6 @@ function initFacilitiesSliders() {
         await waitImages(root);
         if (!sw || sw.destroyed) return;
 
-        // ✅ iOSでupdateだけだと反映されないことがあるので分解して叩く
         sw.updateSize();
         sw.updateSlides();
         sw.updateProgress();

@@ -94,7 +94,7 @@
         <div class="intro__inner bg-video__inner inner">
             <div class="intro__contents">
                 <div class="intro__gallery">
-                    <figure class="intro__img01">
+                    <figure class="intro__img intro__img--01" data-shift="40">
                         <picture>
                             <source
                                 srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-intro01.avif"
@@ -103,7 +103,7 @@
                                 alt="">
                         </picture>
                     </figure>
-                    <figure class="intro__img02">
+                    <figure class="intro__img intro__img--02" data-shift="20">
                         <picture>
                             <source
                                 srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-intro02.avif"
@@ -112,7 +112,7 @@
                                 alt="">
                         </picture>
                     </figure>
-                    <figure class="intro__img03">
+                    <figure class="intro__img intro__img--03" data-shift="80">
                         <picture>
                             <source
                                 srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-intro03.avif"
@@ -121,7 +121,7 @@
                                 alt="">
                         </picture>
                     </figure>
-                    <figure class="intro__img04">
+                    <figure class="intro__img intro__img--04" data-shift="60">
                         <picture>
                             <source
                                 srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-intro04.avif"

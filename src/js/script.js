@@ -222,7 +222,7 @@ function initModal() {
         closeModal();
     });
 
-    // リサイズ時：開いているモーダル内Swiperを更新
+    // リサイズ時
     let resizeTimer = null;
     window.addEventListener("resize", () => {
         if (!activeModal) return;

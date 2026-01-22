@@ -6,12 +6,10 @@
     visibility: hidden;
 }
 
-/* 初回だけフェードさせるための transition（変更前に付けるのが重要） */
 body.is-mv-fade .mv-slider {
     transition: opacity 2.0s ease, visibility 0s linear 0s;
 }
 
-/* 表示許可 */
 body.is-mv-visible .mv-slider {
     opacity: 1;
     visibility: visible;
