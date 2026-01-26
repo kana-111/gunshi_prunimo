@@ -39,12 +39,6 @@
                                         'alt'     => esc_attr(get_the_title()),
                                         'loading' => 'lazy',
                                     ]); ?>
-                                <?php else : ?>
-                                    <!-- サムネ無し時の代替画像（必要ならパスを変更） -->
-                                    <!-- <img
-                                        src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/common/news.webp'); ?>"
-                                        alt=""
-                                        loading="lazy"> -->
                                 <?php endif; ?>
                             </div>
                         </div>

@@ -1,9 +1,4 @@
 <?php
-
-/**
- * Template Name: 固定ページテンプレート
- * Description: 規約等の固定ページテンプレート
- */
 get_header();
 ?>
 

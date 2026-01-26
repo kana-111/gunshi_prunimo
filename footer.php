@@ -26,25 +26,25 @@
     </div>
     <div class="footer__contents-inner bg-video__inner inner">
       <?php
-      $footerLinks = [
-        [
-          'url'  => '/',
-          'text' => '利用案内',
-        ],
-        [
-          'url'  => '/',
-          'text' => '注意事項',
-        ],
-        [
-          'url'  => '/',
-          'text' => '宿泊約款',
-        ],
-        [
-          'url'  => '/policy',
-          'text' => 'プライバシーポリシー',
-        ],
-      ];
-      ?>
+$footerLinks = [
+    [
+        'url'  => '/regulations',
+        'text' => '利用規約',
+    ],
+    [
+        'url'  => '/attention',
+        'text' => '注意事項',
+    ],
+    [
+        'url'  => '/accommodation-terms',
+        'text' => '宿泊約款',
+    ],
+    [
+        'url'  => '/policy',
+        'text' => 'プライバシーポリシー',
+    ],
+];
+?>
       <div class="footer__links">
         <?php foreach ($footerLinks as $i => $footerLink) : ?>
           <?php
