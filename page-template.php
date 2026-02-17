@@ -20,7 +20,11 @@ get_header();
         </picture>
       </div>
       <hgroup class="sub-title__ttl">
-        <h2><?php the_title(); ?></h2>
+        <?php if (is_page('policy')) : ?>
+          <h2>プライバシー<br>ポリシー</h2>
+        <?php else : ?>
+          <h2><?php the_title(); ?></h2>
+        <?php endif; ?>
         <p><?php echo esc_html(get_post_field('post_name', get_the_ID())); ?></p>
       </hgroup>
     </div>

@@ -22,7 +22,7 @@
 
 .sub-title__image {
     margin-left: max(calc(50% - 50vw), rem(-100));
-    min-height: rem(485);
+    height: rem(485);
 
     @include mq("md") {
         min-height: auto;
