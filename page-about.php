@@ -9,7 +9,7 @@
                 [
                     'en' => 'Introduction',
                     'ja' => '施設紹介',
-                    'img' => 'img_sub-facilities_title',
+                    'img' => 'img_title-introduction',
                     'alt' => '',
                     'modifier' => '',
                 ]
@@ -25,26 +25,22 @@
                 'bottomText' => "一棟貸しならではの独立した空間が、到着した瞬間から非日常へと誘います。
 				周囲の景観に溶け込みながらも、確かな存在感を放つファサード。
 				大切な家族と過ごす時間を守るための、静けさとプライバシーを備えた設計です。",
-                'bg' => "bg_sub-facilities_facade",
+                'bg' => "bg_sub-facilities_facade01",
                 'slider' => [
                     [
-                        'img'  => 'bg_sub-facilities_facade',
+                        'img'  => 'bg_sub-facilities_facade01',
                         'alt'  => '',
                     ],
                     [
-                        'img'  => 'bg_sub-facilities_living',
+                        'img'  => 'bg_sub-facilities_facade02',
                         'alt'  => '',
                     ],
                     [
-                        'img'  => 'bg_sub-facilities_kitchen',
-                        'alt'  => '',
-                    ],					
-                    [
-                        'img'  => 'bg_sub-facilities_bathroom',
+                        'img'  => 'bg_sub-facilities_facade03',
                         'alt'  => '',
                     ],
                     [
-                        'img'  => 'bg_sub-facilities_dogrun',
+                        'img'  => 'bg_sub-facilities_facade04',
                         'alt'  => '',
                     ],
                 ],
@@ -56,26 +52,30 @@
                 'bottomText' => "大きな窓から広がる景色が、時間の流れをゆるやかに変えていきます。
 				ペットも人も、同じ目線で寛げる広々としたリビング・ダイニング。
 				会話を楽しみ、食事を囲み、何もしない贅沢を味わうための場所です。",
-                'bg' => "bg_sub-facilities_living",
+                'bg' => "bg_sub-facilities_living06",
                 'slider' => [
                     [
-                        'img'  => 'bg_sub-facilities_facade',
+                        'img'  => 'bg_sub-facilities_living01',
                         'alt'  => '',
                     ],
                     [
-                        'img'  => 'bg_sub-facilities_living',
+                        'img'  => 'bg_sub-facilities_living02',
                         'alt'  => '',
                     ],
                     [
-                        'img'  => 'bg_sub-facilities_kitchen',
-                        'alt'  => '',
-                    ],					
-                    [
-                        'img'  => 'bg_sub-facilities_bathroom',
+                        'img'  => 'bg_sub-facilities_living03',
                         'alt'  => '',
                     ],
                     [
-                        'img'  => 'bg_sub-facilities_dogrun',
+                        'img'  => 'bg_sub-facilities_living04',
+                        'alt'  => '',
+                    ],
+                    [
+                        'img'  => 'bg_sub-facilities_living05',
+                        'alt'  => '',
+                    ],
+                    [
+                        'img'  => 'bg_sub-facilities_living06',
                         'alt'  => '',
                     ],
                 ],
@@ -87,56 +87,72 @@
                 'bottomText' => "調理器具や設備を整え、長期滞在や特別な日の食事にも対応します。
 				外食に縛られない、自分たちのペースで過ごす時間。
 				ペットと離れることなく、日常の延長線上にある上質な滞在を叶えます。",
-                'bg' => "bg_sub-facilities_kitchen",
+                'bg' => "bg_sub-facilities_kitchen01",
                 'slider' => [
                     [
-                        'img'  => 'bg_sub-facilities_facade',
+                        'img'  => 'bg_sub-facilities_kitchen01',
                         'alt'  => '',
                     ],
                     [
-                        'img'  => 'bg_sub-facilities_living',
+                        'img'  => 'bg_sub-facilities_kitchen02',
                         'alt'  => '',
                     ],
                     [
-                        'img'  => 'bg_sub-facilities_kitchen',
-                        'alt'  => '',
-                    ],					
-                    [
-                        'img'  => 'bg_sub-facilities_bathroom',
+                        'img'  => 'bg_sub-facilities_kitchen03',
                         'alt'  => '',
                     ],
                     [
-                        'img'  => 'bg_sub-facilities_dogrun',
+                        'img'  => 'bg_sub-facilities_kitchen04',
+                        'alt'  => '',
+                    ],
+                    [
+                        'img'  => 'bg_sub-facilities_kitchen05',
+                        'alt'  => '',
+                    ],
+                    [
+                        'img'  => 'bg_sub-facilities_kitchen06',
+                        'alt'  => '',
+                    ],
+                    [
+                        'img'  => 'bg_sub-facilities_kitchen07',
                         'alt'  => '',
                     ],
                 ],
             ],
-            
-			[
+
+            [
                 'titleEn' => "Bathroom",
                 'titleJa' => "浴室・洗面・トイレ",
                 'topText' => "清潔感と上質さを追求し、滞在中の快適さを静かに支えます。",
                 'bottomText' => "余計な装飾を排したデザインと、使い勝手に配慮した設え。朝の支度から夜のリラックスタイムまで、日常以上の心地よさを感じていただけます。",
-                'bg' => "bg_sub-facilities_bathroom",
+                'bg' => "bg_sub-facilities_bathroom05",
                 'slider' => [
                     [
-                        'img'  => 'bg_sub-facilities_facade',
+                        'img'  => 'bg_sub-facilities_bathroom01',
                         'alt'  => '',
                     ],
                     [
-                        'img'  => 'bg_sub-facilities_living',
+                        'img'  => 'bg_sub-facilities_bathroom02',
                         'alt'  => '',
                     ],
                     [
-                        'img'  => 'bg_sub-facilities_kitchen',
-                        'alt'  => '',
-                    ],					
-                    [
-                        'img'  => 'bg_sub-facilities_bathroom',
+                        'img'  => 'bg_sub-facilities_bathroom03',
                         'alt'  => '',
                     ],
                     [
-                        'img'  => 'bg_sub-facilities_dogrun',
+                        'img'  => 'bg_sub-facilities_bathroom04',
+                        'alt'  => '',
+                    ],
+                    [
+                        'img'  => 'bg_sub-facilities_bathroom05',
+                        'alt'  => '',
+                    ],
+                    [
+                        'img'  => 'bg_sub-facilities_bathroom06',
+                        'alt'  => '',
+                    ],
+                    [
+                        'img'  => 'bg_sub-facilities_bathroom07',
                         'alt'  => '',
                     ],
                 ],
@@ -147,26 +163,46 @@
                 'topText' => "共に過ごす時間そのものを豊かにするための庭",
                 'bottomText' => "周囲を気にすることなく、自由に駆け回れるプライベートドッグラン。
 				自然の風や光を感じながら、ペットが本来の表情を取り戻していく様子を、すぐそばで見守ることができます。",
-                'bg' => "bg_sub-facilities_dogrun",
+                'bg' => "bg_sub-facilities_dogrun05",
                 'slider' => [
                     [
-                        'img'  => 'bg_sub-facilities_facade',
+                        'img'  => 'bg_sub-facilities_dogrun01',
                         'alt'  => '',
                     ],
                     [
-                        'img'  => 'bg_sub-facilities_living',
+                        'img'  => 'bg_sub-facilities_dogrun02',
                         'alt'  => '',
                     ],
                     [
-                        'img'  => 'bg_sub-facilities_kitchen',
-                        'alt'  => '',
-                    ],					
-                    [
-                        'img'  => 'bg_sub-facilities_bathroom',
+                        'img'  => 'bg_sub-facilities_dogrun03',
                         'alt'  => '',
                     ],
                     [
-                        'img'  => 'bg_sub-facilities_dogrun',
+                        'img'  => 'bg_sub-facilities_dogrun04',
+                        'alt'  => '',
+                    ],
+                    [
+                        'img'  => 'bg_sub-facilities_dogrun05',
+                        'alt'  => '',
+                    ],
+                    [
+                        'img'  => 'bg_sub-facilities_dogrun06',
+                        'alt'  => '',
+                    ],
+                    [
+                        'img'  => 'bg_sub-facilities_dogrun07',
+                        'alt'  => '',
+                    ],
+                    [
+                        'img'  => 'bg_sub-facilities_dogrun08',
+                        'alt'  => '',
+                    ],
+                    [
+                        'img'  => 'bg_sub-facilities_dogrun09',
+                        'alt'  => '',
+                    ],
+                    [
+                        'img'  => 'bg_sub-facilities_dogrun10',
                         'alt'  => '',
                     ],
                 ],
@@ -321,7 +357,7 @@
                 [
                     'en' => 'FAQ',
                     'ja' => 'よくある質問',
-                    'img' => 'img_sub-faq_title',
+                    'img' => 'img_title-faq',
                     'alt' => '',
                     'modifier' => 'reverse',
                 ]
@@ -329,73 +365,73 @@
             ?>
         </div>
         <div class="sub-faq__inner inner">
-           <?php
-$faqs = [
-    [
-        'title' => "ペットに関して",
-        'faq' => [
-            [
-                'q' => 'どのようなペットが同伴可能ですか？',
-                'a' => '当施設では、基本的に犬の同伴が可能です。頭数・サイズ・犬種については事前に条件を設けておりますので、ご予約時にご確認ください。',
-            ],
-            [
-                'q' => 'ペット料金はかかりますか？',
-                'a' => 'ペット同伴に際して、別途料金をお願いする場合がございます。詳細はご予約時にご案内いたします。',
-            ],
-            [
-                'q' => '室内でペットと一緒に過ごせますか？',
-                'a' => 'はい、室内でもご一緒にお過ごしいただけます。寝具や家具の上で過ごす場合は、マットやカバーのご使用をお願いいたします。',
-            ],
-            [
-                'q' => 'ドッグラン（庭）は自由に利用できますか？',
-                'a' => 'ご宿泊中は、プライベートドッグランとして自由にご利用いただけます。安全管理は飼い主様の責任にてお願いいたします。',
-            ],
-        ],
-    ],
-    [
-        'title' => "宿泊に関して",
-        'faq' => [
-            [
-                'q' => '何名まで宿泊できますか？',
-                'a' => 'ご宿泊可能人数には上限がございます。詳細は施設概要ページまたはご予約時にご確認ください。',
-            ],
-            [
-                'q' => 'チェックイン・チェックアウトの時間を教えてください。',
-                'a' => 'チェックイン・チェックアウトの時間は事前にご案内しております。時間外のご利用をご希望の場合は、事前にご相談ください。',
-            ],
-            [
-                'q' => '連泊は可能ですか？',
-                'a' => 'はい、連泊も可能です。長期滞在をご希望の場合は、滞在内容に応じたご提案をいたします。',
-            ],
-            [
-                'q' => '食事の提供はありますか？',
-                'a' => '当施設では食事の提供は行っておりません。キッチンをご自由にご利用いただき、ご自身のペースでお過ごしください。',
-            ],
-        ],
-    ],
-    [
-        'title' => "お支払いに関して",
-        'faq' => [
-            [
-                'q' => '支払い方法を教えてください。',
-                'a' => 'お支払いは事前決済を基本としております。ご利用可能な決済方法は、ご予約時にご案内いたします。',
-            ],
-            [
-                'q' => '予約後に料金が変わることはありますか？',
-                'a' => '原則として、ご予約確定後の料金変更はございません。ただし、人数変更などがあった場合は再計算となる場合があります。',
-            ],
-            [
-                'q' => 'キャンセル料はいつから発生しますか？',
-                'a' => 'キャンセル料は、別途定めるキャンセルポリシーに基づき発生いたします。詳細はキャンセルポリシーページをご確認ください。',
-            ],
-            [
-                'q' => '領収書は発行できますか？',
-                'a' => 'はい、領収書の発行が可能です。ご希望の際は、ご予約時またはご宿泊後にお申し付けください。',
-            ],
-        ],
-    ],
-];
-?>
+            <?php
+            $faqs = [
+                [
+                    'title' => "ペットに関して",
+                    'faq' => [
+                        [
+                            'q' => 'どのようなペットが同伴可能ですか？',
+                            'a' => '当施設では、基本的に犬の同伴が可能です。頭数・サイズ・犬種については事前に条件を設けておりますので、ご予約時にご確認ください。',
+                        ],
+                        [
+                            'q' => 'ペット料金はかかりますか？',
+                            'a' => 'ペット同伴に際して、別途料金をお願いする場合がございます。詳細はご予約時にご案内いたします。',
+                        ],
+                        [
+                            'q' => '室内でペットと一緒に過ごせますか？',
+                            'a' => 'はい、室内でもご一緒にお過ごしいただけます。寝具や家具の上で過ごす場合は、マットやカバーのご使用をお願いいたします。',
+                        ],
+                        [
+                            'q' => 'ドッグラン（庭）は自由に利用できますか？',
+                            'a' => 'ご宿泊中は、プライベートドッグランとして自由にご利用いただけます。安全管理は飼い主様の責任にてお願いいたします。',
+                        ],
+                    ],
+                ],
+                [
+                    'title' => "宿泊に関して",
+                    'faq' => [
+                        [
+                            'q' => '何名まで宿泊できますか？',
+                            'a' => 'ご宿泊可能人数には上限がございます。詳細は施設概要ページまたはご予約時にご確認ください。',
+                        ],
+                        [
+                            'q' => 'チェックイン・チェックアウトの時間を教えてください。',
+                            'a' => 'チェックイン・チェックアウトの時間は事前にご案内しております。時間外のご利用をご希望の場合は、事前にご相談ください。',
+                        ],
+                        [
+                            'q' => '連泊は可能ですか？',
+                            'a' => 'はい、連泊も可能です。長期滞在をご希望の場合は、滞在内容に応じたご提案をいたします。',
+                        ],
+                        [
+                            'q' => '食事の提供はありますか？',
+                            'a' => '当施設では食事の提供は行っておりません。キッチンをご自由にご利用いただき、ご自身のペースでお過ごしください。',
+                        ],
+                    ],
+                ],
+                [
+                    'title' => "お支払いに関して",
+                    'faq' => [
+                        [
+                            'q' => '支払い方法を教えてください。',
+                            'a' => 'お支払いは事前決済を基本としております。ご利用可能な決済方法は、ご予約時にご案内いたします。',
+                        ],
+                        [
+                            'q' => '予約後に料金が変わることはありますか？',
+                            'a' => '原則として、ご予約確定後の料金変更はございません。ただし、人数変更などがあった場合は再計算となる場合があります。',
+                        ],
+                        [
+                            'q' => 'キャンセル料はいつから発生しますか？',
+                            'a' => 'キャンセル料は、別途定めるキャンセルポリシーに基づき発生いたします。詳細はキャンセルポリシーページをご確認ください。',
+                        ],
+                        [
+                            'q' => '領収書は発行できますか？',
+                            'a' => 'はい、領収書の発行が可能です。ご希望の際は、ご予約時またはご宿泊後にお申し付けください。',
+                        ],
+                    ],
+                ],
+            ];
+            ?>
             <?php foreach ($faqs as $i => $group) : ?>
                 <div class="sub-faq__content js-faq-content">
                     <h3 class="sub-faq__content-title">
@@ -428,7 +464,7 @@ $faqs = [
                 [
                     'en' => 'Access',
                     'ja' => 'アクセス',
-                    'img' => 'img_sub-access_title',
+                    'img' => 'img_title-access',
                     'alt' => '',
                     'modifier' => '',
                 ]

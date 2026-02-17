@@ -172,7 +172,7 @@
         ],
         [
             'text' => "“ふわふわ”の<br>幸福感を届ける<br>デザインとサービス",
-            'img' => "bg_top-concept04",
+            'img' => "bg_cta-link02",
             'link' => [
                 'url'  => 'about',
                 'text' => '詳しくはこちら',
@@ -279,10 +279,6 @@
                                         alt="">
                                 </picture>
                             </li>
-                        </ul>
-                    </div>
-                    <div class="facilities__slider facilities-slider js-facilities-slider02 swiper pc-only">
-                        <ul class="facilities-slider__wrapper swiper-wrapper">
                             <li class="facilities-slider__slide swiper-slide">
                                 <picture>
                                     <source
@@ -301,12 +297,52 @@
                                         alt="">
                                 </picture>
                             </li>
+                        </ul>
+                    </div>
+                    <div class="facilities__slider facilities-slider js-facilities-slider02 swiper pc-only">
+                        <ul class="facilities-slider__wrapper swiper-wrapper">
                             <li class="facilities-slider__slide swiper-slide">
                                 <picture>
                                     <source
                                         srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-facilities06.avif"
                                         type="image/avif">
                                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-facilities06.jpg"
+                                        alt="">
+                                </picture>
+                            </li>
+                            <li class="facilities-slider__slide swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-facilities07.avif"
+                                        type="image/avif">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-facilities07.jpg"
+                                        alt="">
+                                </picture>
+                            </li>
+                            <li class="facilities-slider__slide swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-facilities08.avif"
+                                        type="image/avif">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-facilities08.jpg"
+                                        alt="">
+                                </picture>
+                            </li>
+                            <li class="facilities-slider__slide swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-facilities09.avif"
+                                        type="image/avif">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-facilities09.jpg"
+                                        alt="">
+                                </picture>
+                            </li>
+                            <li class="facilities-slider__slide swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-facilities10.avif"
+                                        type="image/avif">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-facilities10.jpg"
                                         alt="">
                                 </picture>
                             </li>
@@ -327,16 +363,16 @@
                         ?>
                     </div>
                     <p class="facilities__text text">
-						大切な家族とだけ過ごすための、<br>完全なるプライベート空間。<br><br>
-						ペットと共に滞在できる<br>一棟貸しのコテージです。<br>
-						誰にも邪魔されない時間をお過ごしいただけます。<br>
-						<br>
-						室内は、上質な素材と洗練されたデザインで統一。<br>
-						滞在そのものを特別な体験へと昇華させます。<br>
-						<br>
-						ペットは「同伴」ではなく、かけがえのない家族の一員。<br>
-						広々とした空間で、共に寛ぎ、共に眠り、共に目覚める——<br>
-						そんな本来あるべき旅のかたちを叶えます。
+                        大切な家族とだけ過ごすための、<br>完全なるプライベート空間。<br><br>
+                        ペットと共に滞在できる<br>一棟貸しのコテージです。<br>
+                        誰にも邪魔されない時間をお過ごしいただけます。<br>
+                        <br>
+                        室内は、上質な素材と洗練されたデザインで統一。<br>
+                        滞在そのものを特別な体験へと昇華させます。<br>
+                        <br>
+                        ペットは「同伴」ではなく、かけがえのない家族の一員。<br>
+                        広々とした空間で、共に寛ぎ、共に眠り、共に目覚める——<br>
+                        そんな本来あるべき旅のかたちを叶えます。
                     </p>
                     <div class="facilities__link">
                         <?php
@@ -373,11 +409,11 @@
                     </div>
                     <p class="reservation__text text">
                         本施設は、一日一組限定の一棟貸しとなっております。<br>
-						ご宿泊料金は人数・シーズン・ご滞在日数に応じた<br>完全予約制にてご案内しております。<br><br>
-					料金の詳細につきましては、<br>各予約サイトからご確認ください。<br>
-						ご不明点につきましては、<br>どうぞお気軽にお問い合わせください。<br><br>
-						限られた方のために用意された、静かな時間。<br>
-						ご縁のあるお客様をお迎えできることを、心よりお待ちしております。
+                        ご宿泊料金は人数・シーズン・ご滞在日数に応じた<br>完全予約制にてご案内しております。<br><br>
+                        料金の詳細につきましては、<br>各予約サイトからご確認ください。<br>
+                        ご不明点につきましては、<br>どうぞお気軽にお問い合わせください。<br><br>
+                        限られた方のために用意された、静かな時間。<br>
+                        ご縁のあるお客様をお迎えできることを、心よりお待ちしております。
 
                     </p>
                 </div>
@@ -450,29 +486,29 @@
                 ?>
             </div>
             <?php
-$faqs = [
-    [
-        'q' => 'どのようなペットが同伴可能ですか？',
-        'a' => '当施設では、基本的に犬の同伴が可能です。頭数・サイズ・犬種については事前に条件を設けておりますので、ご予約時にご確認ください。',
-    ],
-    [
-        'q' => '室内でペットと一緒に過ごせますか？',
-        'a' => 'はい、室内でもご一緒にお過ごしいただけます。寝具や家具の上で過ごす場合は、マットやカバーのご使用をお願いいたします。',
-    ],
-    [
-        'q' => '何名まで宿泊できますか？',
-        'a' => 'ご宿泊可能人数には上限がございます。詳細は施設概要ページまたはご予約時にご確認ください。',
-    ],
-    [
-        'q' => 'チェックイン・チェックアウトの時間を教えてください。',
-        'a' => 'チェックイン・チェックアウトの時間は事前にご案内しております。時間外のご利用をご希望の場合は、事前にご相談ください。',
-    ],
-    [
-        'q' => '支払い方法を教えてください。',
-        'a' => 'お支払いは事前決済を基本としております。ご利用可能な決済方法は、ご予約時にご案内いたします。',
-    ],
-];
-?>
+            $faqs = [
+                [
+                    'q' => 'どのようなペットが同伴可能ですか？',
+                    'a' => '当施設では、基本的に犬の同伴が可能です。頭数・サイズ・犬種については事前に条件を設けておりますので、ご予約時にご確認ください。',
+                ],
+                [
+                    'q' => '室内でペットと一緒に過ごせますか？',
+                    'a' => 'はい、室内でもご一緒にお過ごしいただけます。寝具や家具の上で過ごす場合は、マットやカバーのご使用をお願いいたします。',
+                ],
+                [
+                    'q' => '何名まで宿泊できますか？',
+                    'a' => 'ご宿泊可能人数には上限がございます。詳細は施設概要ページまたはご予約時にご確認ください。',
+                ],
+                [
+                    'q' => 'チェックイン・チェックアウトの時間を教えてください。',
+                    'a' => 'チェックイン・チェックアウトの時間は事前にご案内しております。時間外のご利用をご希望の場合は、事前にご相談ください。',
+                ],
+                [
+                    'q' => '支払い方法を教えてください。',
+                    'a' => 'お支払いは事前決済を基本としております。ご利用可能な決済方法は、ご予約時にご案内いたします。',
+                ],
+            ];
+            ?>
             <div class="faq__content js-faq-content">
                 <h3 class="faq__content-title">ペットに関して</h3>
                 <ul class="faq__list faq-list">
