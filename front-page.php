@@ -72,6 +72,29 @@
                         </picture>
                     </div>
                 </div>
+                <div class="mv-slider__slide swiper-slide">
+                    <div class="mv-slider__image">
+                        <picture>
+                            <!-- PC: avif -->
+                            <source
+                                srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-mv04.avif"
+                                type="image/avif"
+                                media="(min-width: 768px)">
+                            <!-- PC: jpg -->
+                            <source
+                                srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-mv04.jpg"
+                                type="image/jpeg"
+                                media="(min-width: 768px)">
+                            <!-- SP: avif -->
+                            <source
+                                srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-mv04_sp.avif"
+                                type="image/avif">
+                            <!-- SP: jpg fallback -->
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-mv04_sp.jpg"
+                                alt="">
+                        </picture>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="mv__logo">

@@ -72,6 +72,29 @@
                         </picture>
                     </div>
                 </div>
+                <div class="mv-slider__slide swiper-slide">
+                    <div class="mv-slider__image">
+                        <picture>
+                            <!-- PC: avif -->
+                            <source
+                                srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-mv04.avif"
+                                type="image/avif"
+                                media="(min-width: 768px)">
+                            <!-- PC: jpg -->
+                            <source
+                                srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-mv04.jpg"
+                                type="image/jpeg"
+                                media="(min-width: 768px)">
+                            <!-- SP: avif -->
+                            <source
+                                srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-mv04_sp.avif"
+                                type="image/avif">
+                            <!-- SP: jpg fallback -->
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-mv04_sp.jpg"
+                                alt="">
+                        </picture>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="mv__logo">
@@ -172,7 +195,7 @@
         ],
         [
             'text' => "“ふわふわ”の<br>幸福感を届ける<br>デザインとサービス",
-            'img' => "bg_top-concept04",
+            'img' => "bg_cta-link02",
             'link' => [
                 'url'  => 'about',
                 'text' => '詳しくはこちら',
@@ -279,10 +302,6 @@
                                         alt="">
                                 </picture>
                             </li>
-                        </ul>
-                    </div>
-                    <div class="facilities__slider facilities-slider js-facilities-slider02 swiper pc-only">
-                        <ul class="facilities-slider__wrapper swiper-wrapper">
                             <li class="facilities-slider__slide swiper-slide">
                                 <picture>
                                     <source
@@ -301,12 +320,52 @@
                                         alt="">
                                 </picture>
                             </li>
+                        </ul>
+                    </div>
+                    <div class="facilities__slider facilities-slider js-facilities-slider02 swiper pc-only">
+                        <ul class="facilities-slider__wrapper swiper-wrapper">
                             <li class="facilities-slider__slide swiper-slide">
                                 <picture>
                                     <source
                                         srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-facilities06.avif"
                                         type="image/avif">
                                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-facilities06.jpg"
+                                        alt="">
+                                </picture>
+                            </li>
+                            <li class="facilities-slider__slide swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-facilities07.avif"
+                                        type="image/avif">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-facilities07.jpg"
+                                        alt="">
+                                </picture>
+                            </li>
+                            <li class="facilities-slider__slide swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-facilities08.avif"
+                                        type="image/avif">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-facilities08.jpg"
+                                        alt="">
+                                </picture>
+                            </li>
+                            <li class="facilities-slider__slide swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-facilities09.avif"
+                                        type="image/avif">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-facilities09.jpg"
+                                        alt="">
+                                </picture>
+                            </li>
+                            <li class="facilities-slider__slide swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-facilities10.avif"
+                                        type="image/avif">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/img_top-facilities10.jpg"
                                         alt="">
                                 </picture>
                             </li>
